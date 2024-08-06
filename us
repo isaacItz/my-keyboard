@@ -2290,6 +2290,8 @@ xkb_symbols "watahell_us" {
     include "us"
     name[Group1]="kes";
 
+    key <RCTL> {[ dead_acute, asciitilde ]};
+
     //key <TLDE>	{[	asciitilde,	grave,	grave	]};
     key <AE11>	{[   minus,	 underscore	]};
     key <AE12>	{[   equal,	 plus		]};
@@ -2304,7 +2306,9 @@ xkb_symbols "watahell_us" {
     key <AD10>  { [         i,          I,     minus   ] };
     key <AD09>  { [         u,          U,     asterisk  ] };
     key <AD08>  { [         y,          Y,     dead_acute          ] };
+    //extra keys
     key <AD07>	{[	 ampersand	]};
+    key <AD06>	{[	Tab,  ISO_Left_Tab	]};
 
     //key <RTRN>  { [ dead_acute ] };
     key <BKSL>  { [         colon,          semicolon,     0 ] };
@@ -2317,44 +2321,49 @@ xkb_symbols "watahell_us" {
     key <AB09>  { [         m,          M,     greater  ] };
     key <AB08>  { [         n,          N,     less          ] };
     key <AB07>  { [         b,          B          ] };
+    // extra keys
+    key <AB06>	{[	 period	 		]};
 
 
 //left side 
 // apostrophe,	 quotedbl
-    key <AD06>	{[	 q,	 Q,	exclam	]};
-    key <Ak01>	{[	 w,	 W,	at	]};
-    key <AD02>	{[	 e,	 E,	quotedbl	]};
-    key <AD03>	{[	 r,	 R,	asciitilde	]};
-    key <AD04>	{[	 t,	 T,	plus	]};
+    key <AD01>	{[	 q,	 Q,	exclam	]};
+    key <AD02>	{[	 w,	 W,	at	]};
+    key <AD03>	{[	 e,	 E,	quotedbl	]};
+    key <AD04>	{[	 r,	 R,	asciitilde	]};
+    key <AD05>	{[	 t,	 T,	plus	]};
 
-    key <TLDE>	{[	 a,	 A,	1	]};
-    key <AC01>	{[	 s,	 S,	2	]};
-    key <AC02>	{[	 d,	 D,	3	]};
-    key <AC03>	{[	 f,	 F,	4	]};
-    key <AC04>	{[	 g,	 G,	5	]};
-    key <AC05>	{[	 bar,	 backslash, backslash		]};
-    key <AC07>	{[	 question,	 ntilde, ntilde		]};
+    //key <TLDE>	{[	 a,	 A,	1	]};
+    key <AC01>	{[	 a,	 A,	1	]};
+    key <AC02>	{[	 s,	 S,	2	]};
+    key <AC03>	{[	 d,	 D,	3	]};
+    key <AC04>	{[	 f,	 F,	4	]};
+    key <AC05>	{[	 g,	 G,	5	]};
+    //extra keys
+    key <AC06>	{[	 slash	,	 backslash, backslash		]};
+    key <AC07>	{[	 minus	,	 ntilde, ntilde		]};
 
-    key <LSGT>	{[	 z,	 Z		]};
-    key <AB01>	{[	 x,	 X		]};
-    key <AB02>	{[	 c,	 C		]};
-    key <AB03>	{[	 v,	 V		]};
-    key <AB04>	{[	 b,	 B		]};
+    //key <LSGT>	{[	 z,	 Z		]};
+    key <AB01>	{[	 z,	 Z		]};
+    key <AB02>	{[	 x,	 X		]};
+    key <AB03>	{[	 c,	 C		]};
+    key <AB04>	{[	 v,	 V		]};
+    key <AB05>	{[	 b,	 B		]};
 
     // top row
     //key  <AD06> {[  q,  ISO_Left_Tab  ]};
-    key <AE01> { [   grave ] };
-    key <AE02> { [ numbersign,          2 ] };
-    key <AE03> { [ apostrophe	,  3 ] };
-    key <AE04> { [ dollar,      4 ] };
-    key <AE05> { [ percent,     5 ] };
-    key <AE06> { [ asciicircum, 6 ] };
-    key <AE07> { [ ampersand,   7 ] };
-    key <AE08> { [ asterisk,    8 ] };
-    key <AE10> { [ parenleft,   9, parenright ] };
-    key <AE11> { [ bracketleft,  0, bracketright ] };
-    key <AE09>	{[   braceleft,	 underscore, braceright	]};
-    key <AE12>	{[   equal,	 plus		]};
+    key <AE01> { [ 1,  grave ] };
+    key <AE02> { [ 2, numbersign,          2 ] };
+    key <AE03> { [ 3, apostrophe	,  3 ] };
+    key <AE04> { [ 4, dollar,      4 ] };
+    key <AE05> { [ 5, percent,     5 ] };
+    key <AE06> { [ 6, asciicircum, 6 ] };
+    key <AE07> { [ 7, ampersand,   7 ] };
+    key <AE08> { [ period, asterisk,    8 ] };
+    key <AE09>	{[ 7,  equal,	 plus		]};
+    key <AE10>	{[ 8, braceleft,	 underscore, braceright	]};
+    key <AE11> { [ 9, parenleft,   9, parenright ] };
+    key <AE12> { [ 0, bracketleft,  0, bracketright ] };
 
     include "level3(ralt_switch)"
 };
@@ -2363,6 +2372,7 @@ xkb_symbols "wata_colemak" {
     include "us"
     name[Group1]="cole";
 
+    key <RCTL> {[ dead_acute, asciitilde ]};
     //key <TLDE>	{[	asciitilde,	grave,	grave	]};
     key <AE11>	{[   minus,	 underscore	]};
     key <AE12>	{[   equal,	 plus		]};
@@ -2390,44 +2400,48 @@ xkb_symbols "wata_colemak" {
     key <AB09>  { [         h,          H,     greater  ] };
     key <AB08>  { [         k,          K,     less          ] };
     key <AB07>  { [         v,          V        ] };
+    // extra keys
+    key <AB06>	{[	 period	 		]};
 
 
 //left side 
 // apostrophe,	 quotedbl
-    key <AD06>	{[	 q,	 Q,	exclam	]};
-    key <Ak01>	{[	 w,	 W,	at	]};
-    key <AD02>	{[	 f,	 F,	quotedbl	]};
-    key <AD03>	{[	 p,	 P,	asciitilde	]};
-    key <AD04>	{[	 b,	 B,	plus	]};
+    key <AD01>	{[	 q,	 Q,	exclam	]};
+    key <AD02>	{[	 w,	 W,	at	]};
+    key <AD03>	{[	 f,	 F,	quotedbl	]};
+    key <AD04>	{[	 p,	 P,	asciitilde	]};
+    key <AD05>	{[	 b,	 B,	plus	]};
 
-    key <TLDE>	{[	 a,	 A,	1	]};
-    key <AC01>	{[	 r,	 R,	2	]};
-    key <AC02>	{[	 s,	 S,	3	]};
-    key <AC03>	{[	 t,	 T,	4	]};
-    key <AC04>	{[	 g,	 G,	5	]};
-    key <AC05>	{[	 bar,	 backslash, backslash		]};
-    key <AC07>	{[	 question,	 ntilde, ntilde		]};
+    key <AC01>	{[	 a,	 A,	1	]};
+    key <AC02>	{[	 r,	 R,	2	]};
+    key <AC03>	{[	 s,	 S,	3	]};
+    key <AC04>	{[	 t,	 T,	4	]};
+    key <AC05>	{[	 g,	 G,	5	]};
+    //extra keys
+    key <AC06>	{[	 slash	,	 backslash, backslash		]};
+    key <AC07>	{[	 minus	,	 ntilde, ntilde		]};
+         
+    key <AB01>	{[	 z,	 Z		]};
+    key <AB02>	{[	 x,	 X		]};
+    key <AB03>	{[	 c,	 C		]};
+    key <AB04>	{[	 d,	 D		]};
+    key <AB05>	{[	 v,	 V		]};
 
-    key <LSGT>	{[	 z,	 Z		]};
-    key <AB01>	{[	 x,	 X		]};
-    key <AB02>	{[	 c,	 C		]};
-    key <AB03>	{[	 d,	 D		]};
-    key <AB04>	{[	 v,	 V		]};
 
     // top row
     //key  <AD06> {[  q,  ISO_Left_Tab  ]};
-    key <AE01> { [   grave ] };
-    key <AE02> { [ numbersign,          2 ] };
-    key <AE03> { [ apostrophe	,  3 ] };
-    key <AE04> { [ dollar,      4 ] };
-    key <AE05> { [ percent,     5 ] };
-    key <AE06> { [ asciicircum, 6 ] };
-    key <AE07> { [ ampersand,   7 ] };
-    key <AE08> { [ asterisk,    8 ] };
-    key <AE10> { [ parenleft,   9, parenright ] };
-    key <AE11> { [ bracketleft,  0, bracketright ] };
-    key <AE09>	{[   braceleft,	 underscore, braceright	]};
-    key <AE12>	{[   equal,	 plus		]};
+    key <AE01> { [ 1,  grave ] };
+    key <AE02> { [ 2, numbersign,          2 ] };
+    key <AE03> { [ 3, apostrophe	,  3 ] };
+    key <AE04> { [ 4, dollar,      4 ] };
+    key <AE05> { [ 5, percent,     5 ] };
+    key <AE06> { [ 6, asciicircum, 6 ] };
+    key <AE07> { [ 7, ampersand,   7 ] };
+    key <AE08> { [ period, asterisk,    8 ] };
+    key <AE09>	{[ 7,  equal,	 plus		]};
+    key <AE10>	{[ 8, braceleft,	 underscore, braceright	]};
+    key <AE11> { [ 9, parenleft,   9, parenright ] };
+    key <AE12> { [ 0, bracketleft,  0, bracketright ] };
 
     include "level3(ralt_switch)"
 };

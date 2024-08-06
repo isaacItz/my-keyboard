@@ -4,8 +4,8 @@ default xkb_keycodes "evdev" {
 	minimum = 8;
 	maximum = 255;
 
-	<TLDE> = 66; // 49
-	<AE01> = 49;
+	<TLDE> = 49; // 49
+	<AE01> = 10;
 	<AE02> = 11;
 	<AE03> = 12;
 	<AE04> = 13;
@@ -19,13 +19,13 @@ default xkb_keycodes "evdev" {
 	<AE12> = 21;
 	<BKSP> = 22;
 
-	<TAB> = 28; //23
-	<Ak01> = 24;
+	<TAB> = 23; //23
+	<AD01> = 24;
 	<AD02> = 25;
 	<AD03> = 26;
 	<AD04> = 27;
-	//<AD05> = 28;
-	<AD06> = 23; //29
+	<AD05> = 28;
+	<AD06> = 29; //29
 	<AD07> = 30;
 	<AD08> = 31;
 	<AD09> = 32;
@@ -35,7 +35,7 @@ default xkb_keycodes "evdev" {
 	<BKSL> = 51;
 	<RTRN> = 62; // 36 right shift 
 
-	<CAPS> = 10; // 66
+	<CAPS> = 66; // 66
 	<AC01> = 38; // 38
 	<AC02> = 39;
 	<AC03> = 40;
@@ -49,8 +49,9 @@ default xkb_keycodes "evdev" {
 	<AC11> = 48;
 	alias <AC12> = <BKSL>;
 
-	<LFSH> = 37; //50 now is left control
+	<LFSH> = 50; //50 now is left control
 	<LSGT> = 94;
+	//<CONTROL> = 94;
 	<AB01> = 52;
 	<AB02> = 53;
 	<AB03> = 54;
@@ -63,11 +64,12 @@ default xkb_keycodes "evdev" {
 	<AB10> = 61;
 	<RTSH> = 105; // 62 intro
 
-	<LCTL> = 50; // 37 left shift
+	<LCTL> = 37; // 37 left shift
 	<LWIN> = 133;
 	<LALT> = 64;
 	<SPCE> = 65;
-	<RALT> = 108;
+	//<RALT> = 108;
+	<Ak02> = 108;
 	alias <ALGR> = <RALT>;
 	<RWIN> = 134;
 	<COMP> = 135;

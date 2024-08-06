@@ -13,16 +13,18 @@ xkb_symbols "pc105" {
     //key <RTRN> {[  Return  ]};
 
     // The extra key on many European keyboards:
-    //key <LSGT> {[  Control_L,  Control_L,    bar,  brokenbar  ]};
+    key <LSGT> {[  Control_L ]};
+    key <Ak02> {[  dead_diaeresis  ]};
+    key <RTSH> {[ dead_circumflex ]};
 
     key <SPCE> {[  space  ]};
 
     key <LFSH> {[  Shift_L    ]};
     key <RTRN> {[  Return  ]};
     key <LCTL> {[  Control_L  ]};
-    key <RCTL> {[ Shift_R ]};
+    //key <RCTL> {[ Shift_R ]};
 
-    key <RTSH> {[ Shift_R ]};
+    //key <RTSH> {[ Shift_R ]};
     key <LALT> {[  Alt_L,  Meta_L  ]};
     key <RALT> {[  Alt_R,  Meta_R  ]};
     key <LWIN> {[  Super_L    ]};
@@ -32,7 +34,7 @@ xkb_symbols "pc105" {
 
     modifier_map Shift   { Shift_L };
     modifier_map Lock    { Caps_Lock };
-    modifier_map Control { Control_L };
+    modifier_map Control { Control_L, <LSGT> };
     modifier_map Mod1    { Alt_L, Alt_R, Meta_L, Meta_R };
     modifier_map Mod2    { Num_Lock };
     modifier_map Mod4    { Super_L, Super_R };

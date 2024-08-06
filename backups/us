@@ -2322,7 +2322,7 @@ xkb_symbols "watahell_us" {
 
 //left side 
 // apostrophe,	 quotedbl
-    key <Ak01>	{[	 q,	 Q,	exclam	]};
+    key <AD01>	{[	 q,	 Q,	exclam	]};
     key <AD02>	{[	 w,	 W,	at	]};
     key <AD03>	{[	 e,	 E,	quotedbl	]};
     key <AD04>	{[	 r,	 R,	asciitilde	]};

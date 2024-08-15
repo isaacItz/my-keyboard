@@ -5199,40 +5199,75 @@
 <dead_circumflex> <colon>		: ";"	semicolon # DIGIT ZERO
 
 #top row qwertyuiop
+#<dead_diaeresis> <q>			: "!"	exclam # EXCLAMATION MARK
+#<dead_diaeresis> <w>			: "@"	at # COMMERCIAL AT
+#<dead_diaeresis> <e>			: "%"	percent # PERCENT SIGN
+#<dead_diaeresis> <r>			: "$"	dollar # DOLLAR SIGN
+#<dead_diaeresis> <t>			: "~"	asciitilde # TILDE
+#<dead_diaeresis> <y>			: "|"	bar # VERTICAL LINE
+#<dead_diaeresis> <u>			: "{"	braceleft # DIGIT SEVEN
+#<dead_diaeresis> <i>			: "("	parenleft # DIGIT EIGHT
+#<dead_diaeresis> <o>			: "["	bracketleft # DIGIT NINE
+#<dead_diaeresis> <p>			: "="	equals # DIGIT ZERO
+#
+##home row asdfghjkl:
+#<dead_diaeresis> <a>			: ";"	semicolon # VERTICAL LINE
+#<dead_diaeresis> <s>			: "#"	numbersign # NUMBER SIGN
+#<dead_diaeresis> <d>			: "\""	quotedbl # QUOTATION MARK
+#<dead_diaeresis> <f>			: "+"	plus # PLUS SIGN
+#<dead_diaeresis> <g>			: "^"	asciicircum # CIRCUMFLEX ACCENT
+#<dead_diaeresis> <h>			: "ñ"	ntilde # LATIN SMALL LETTER N WITH TILDE
+#<dead_diaeresis> <j>			: "*"	asterisk # ASTERISK
+#<dead_diaeresis> <k>			: "-"	minus # HYPHEN-MINUS
+#<dead_diaeresis> <l>			: "_"	underscore # LOW LINE
+#<dead_diaeresis> <colon>		: "/"	slash # SOLIDUS
+#
+##low row zxvcbnm,
+#<dead_diaeresis> <z>			: "z"	z # LATIN SMALL LETTER Z
+#<dead_diaeresis> <x>			: "x"	x # LATIN SMALL LETTER X
+#<dead_diaeresis> <c>			: "?"	question # LATIN SMALL LETTER C
+#<dead_diaeresis> <v>			: "v"	v # LATIN SMALL LETTER V
+#<dead_diaeresis> <b>			: "b"	b # LATIN SMALL LETTER B
+#<dead_diaeresis> <n>			: "<"	less # LESS-THAN SIGN
+#<dead_diaeresis> <m>			: ">"	greater # GREATER-THAN SIGN
+#<dead_diaeresis> <comma>			: "."	period # FULL STOP
+#<dead_diaeresis> <dead_acute>			: "'"	apostrophe # APOSTROPHE
+#<dead_diaeresis> <space>			: "'"	apostrophe # APOSTROPHE
+#<dead_diaeresis> <dead_diaeresis>	: "."	period # DIAERESIS
+
+
 <dead_diaeresis> <q>			: "!"	exclam # EXCLAMATION MARK
 <dead_diaeresis> <w>			: "@"	at # COMMERCIAL AT
-<dead_diaeresis> <e>			: "%"	percent # PERCENT SIGN
-<dead_diaeresis> <r>			: "$"	dollar # DOLLAR SIGN
-<dead_diaeresis> <t>			: "~"	asciitilde # TILDE
-<dead_diaeresis> <y>			: "|"	bar # VERTICAL LINE
-<dead_diaeresis> <u>			: "{"	braceleft # DIGIT SEVEN
-<dead_diaeresis> <i>			: "("	parenleft # DIGIT EIGHT
-<dead_diaeresis> <o>			: "["	bracketleft # DIGIT NINE
-<dead_diaeresis> <p>			: "="	equals # DIGIT ZERO
-
-#home row asdfghjkl:
+<dead_diaeresis> <f>			: "%"	percent # PERCENT SIGN
+<dead_diaeresis> <p>			: "$"	dollar # DOLLAR SIGN
+<dead_diaeresis> <b>			: "~"	asciitilde # TILDE
+<dead_diaeresis> <j>			: "|"	bar # VERTICAL LINE
+<dead_diaeresis> <l>			: "{"	braceleft # DIGIT SEVEN
+<dead_diaeresis> <u>			: "/"	slash # SOLIDUS
+<dead_diaeresis> <y>			: "["	bracketleft # DIGIT NINE
+<dead_diaeresis> <colon>		: "="	equals # DIGIT ZERO
+#home row arstgneio:
 <dead_diaeresis> <a>			: ";"	semicolon # VERTICAL LINE
-<dead_diaeresis> <s>			: "#"	numbersign # NUMBER SIGN
-<dead_diaeresis> <d>			: "\""	quotedbl # QUOTATION MARK
-<dead_diaeresis> <f>			: "+"	plus # PLUS SIGN
+<dead_diaeresis> <r>			: "#"	numbersign # NUMBER SIGN
+<dead_diaeresis> <s>			: "\""	quotedbl # QUOTATION MARK
+<dead_diaeresis> <t>			: "+"	plus # PLUS SIGN
 <dead_diaeresis> <g>			: "^"	asciicircum # CIRCUMFLEX ACCENT
-<dead_diaeresis> <h>			: "ñ"	ntilde # LATIN SMALL LETTER N WITH TILDE
-<dead_diaeresis> <j>			: "*"	asterisk # ASTERISK
-<dead_diaeresis> <k>			: "-"	minus # HYPHEN-MINUS
-<dead_diaeresis> <l>			: "_"	underscore # LOW LINE
-<dead_diaeresis> <colon>		: "/"	slash # SOLIDUS
-
-#low row zxvcbnm,
-<dead_diaeresis> <z>			: "z"	z # LATIN SMALL LETTER Z
-<dead_diaeresis> <x>			: "x"	x # LATIN SMALL LETTER X
-<dead_diaeresis> <c>			: "?"	question # LATIN SMALL LETTER C
-<dead_diaeresis> <v>			: "v"	v # LATIN SMALL LETTER V
-<dead_diaeresis> <b>			: "b"	b # LATIN SMALL LETTER B
-<dead_diaeresis> <n>			: "<"	less # LESS-THAN SIGN
-<dead_diaeresis> <m>			: ">"	greater # GREATER-THAN SIGN
-<dead_diaeresis> <comma>			: "."	period # FULL STOP
-<dead_diaeresis> <dead_acute>			: "'"	apostrophe # APOSTROPHE
-<dead_diaeresis> <space>			: "'"	apostrophe # APOSTROPHE
+<dead_diaeresis> <m>			: "ñ"	ntilde # LATIN SMALL LETTER N WITH TILDE
+<dead_diaeresis> <n>			: "*"	asterisk # ASTERISK
+<dead_diaeresis> <e>			: "-"	minus # HYPHEN-MINUS
+<dead_diaeresis> <i>			: "_"	underscore # LOW LINE
+<dead_diaeresis> <o>			: "("	parenleft # DIGIT EIGHT
+#low row xcdvzkh,
+<dead_diaeresis> <z>			: "\\"	backslash # REVERSE SOLIDUS
+<dead_diaeresis> <x>			: "|"	bar # LATIN SMALL LETTER Z
+<dead_diaeresis> <c>			: "x"	x # LATIN SMALL LETTER X
+<dead_diaeresis> <d>			: "?"	question # LATIN SMALL LETTER C
+<dead_diaeresis> <v>			: "¿"	questiondown # LATIN SMALL LETTER V
+<dead_diaeresis> <k>			: "<"	less # LESS-THAN SIGN
+<dead_diaeresis> <h>			: ">"	greater # GREATER-THAN SIGN
+<dead_diaeresis> <comma>		: "."	period # FULL STOP
+<dead_diaeresis> <dead_acute>		: "'"	apostrophe # APOSTROPHE
+<dead_diaeresis> <space>		: "'"	apostrophe # APOSTROPHE
 <dead_diaeresis> <dead_diaeresis>	: "."	period # DIAERESIS
 
 <dead_diaeresis> <bar>			: "\\"	backslash # REVERSE SOLIDUS

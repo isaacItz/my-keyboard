@@ -2320,9 +2320,10 @@ xkb_symbols "watahell_us" {
     key <AB10>  { [         comma,          period,     period    ] };
     key <AB09>  { [         m,          M,     greater  ] };
     key <AB08>  { [         n,          N,     less          ] };
-    key <AB07>  { [         b,          B          ] };
     // extra keys
-    key <AB06>	{[	 period	 		]};
+    key <AB07>	{[	 period	 		]};
+    key <AB06>  { [         b,          B          ] };
+    key <AB05>	{[	 z,	Z		]};
 
 
 //left side 
@@ -2343,12 +2344,10 @@ xkb_symbols "watahell_us" {
     key <AC06>	{[	 slash	,	 backslash, backslash		]};
     key <AC07>	{[	 minus	,	 ntilde, ntilde		]};
 
-    //key <LSGT>	{[	 z,	 Z		]};
-    key <AB01>	{[	 z,	 Z		]};
-    key <AB02>	{[	 x,	 X		]};
-    key <AB03>	{[	 c,	 C		]};
-    key <AB04>	{[	 v,	 V		]};
-    key <AB05>	{[	 b,	 B		]};
+    key <AB01>	{[	 x,	 X		]};
+    key <AB02>	{[	 c,	 C		]};
+    key <AB03>	{[	 v,	 V		]};
+    key <AB04>	{[	 b,	 B		]};
 
     // top row
     //key  <AD06> {[  q,  ISO_Left_Tab  ]};
@@ -2399,9 +2398,10 @@ xkb_symbols "wata_colemak" {
     key <AB10>  { [         comma,          period,     period    ] };
     key <AB09>  { [         h,          H,     greater  ] };
     key <AB08>  { [         k,          K,     less          ] };
-    key <AB07>  { [         v,          V        ] };
     // extra keys
-    key <AB06>	{[	 period	 		]};
+    key <AB07>	{[	 period	 		]};
+    key <AB06>  { [         z,          Z        ] };
+    key <AB05>	{[	 z,	Z		]};
 
 
 //left side 
@@ -2411,6 +2411,7 @@ xkb_symbols "wata_colemak" {
     key <AD03>	{[	 f,	 F,	quotedbl	]};
     key <AD04>	{[	 p,	 P,	asciitilde	]};
     key <AD05>	{[	 b,	 B,	plus	]};
+    key <AD06>	{[	Tab,  ISO_Left_Tab	]};
 
     key <AC01>	{[	 a,	 A,	1	]};
     key <AC02>	{[	 r,	 R,	2	]};
@@ -2421,11 +2422,11 @@ xkb_symbols "wata_colemak" {
     key <AC06>	{[	 slash	,	 backslash, backslash		]};
     key <AC07>	{[	 minus	,	 ntilde, ntilde		]};
          
-    key <AB01>	{[	 z,	 Z		]};
-    key <AB02>	{[	 x,	 X		]};
-    key <AB03>	{[	 c,	 C		]};
-    key <AB04>	{[	 d,	 D		]};
-    key <AB05>	{[	 v,	 V		]};
+    key <LSGT>	{[	 z,	Z		]};
+    key <AB01>	{[	 x,	 X		]};
+    key <AB02>	{[	 c,	 C		]};
+    key <AB03>	{[	 d,	 D		]};
+    key <AB04>	{[	 v,	 V		]};
 
 
     // top row

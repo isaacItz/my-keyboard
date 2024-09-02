@@ -5,8 +5,8 @@ xkb_symbols "pc105" {
     //key  <CAPS> {[  Caps_Lock  ]};
     key  <TAB> {[  Tab,  ISO_Left_Tab, apostrophe  ]};
     //key <ESC> {[  Escape  ]};
-    key <CAPS> {[  Escape  ]};
-    key <ESC> {[ Caps_Lock  ]};
+    key <CAPS> {[  Caps_Lock  ]};
+    key <ESC> {[ Escape  ]};
 
     key <BKSP> {[  BackSpace,  BackSpace,  Delete ]};
     key <BKSL> {[  backslash,  bar  ]};
@@ -15,7 +15,7 @@ xkb_symbols "pc105" {
     // The extra key on many European keyboards:
     //key <LSGT> {[  Control_L ]};
     key <Ak02> {[  dead_diaeresis  ]};
-    key <RTSH> {[ dead_circumflex ]};
+    //key <RTSH> {[ Alt_R ]};
 
     key <SPCE> {[  space  ]};
 
@@ -41,7 +41,7 @@ xkb_symbols "pc105" {
     modifier_map Mod4    { Super_L, Super_R };
 
     // Six fake keys for virtual<->real modifiers mapping:
-    key <LVL3> {[  ISO_Level3_Shift  ]};
+    key <LVL3> {[  ISO_Level3_Shift ]};
     modifier_map Mod5  { <LVL3> };
 
     key <LVL5> {[  ISO_Level5_Shift  ]};

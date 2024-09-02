@@ -2,41 +2,52 @@
   process-unmapped-keys yes
 )
 (defsrc
-  a s d f l ; ' \
+      e     o
+  a s d f k l ; '
   <
 )
 (defvar
-  tap-time 200
-  hold-time 300
+	
+  tap-time 220
+  hold-time 220
+  hold-alt 200
+  tap-alt 200
 )
 (defalias
   lm (tap-hold $tap-time $hold-time f lmet)
 )
 (defalias
-  la (tap-hold $tap-time $hold-time d lalt)
+  la (tap-hold $tap-alt $hold-alt e lalt)
 )
 (defalias
-  lc (tap-hold $tap-time $hold-time s lctrl)
+  ra (tap-hold $tap-alt $hold-alt o lalt)
 )
 (defalias
-  ls (tap-hold $tap-time $hold-time a lshift)
+  lc (tap-hold $tap-time $hold-time a lctrl)
 )
 (defalias
-  rm (tap-hold $tap-time $hold-time l lmet)
+  ls (tap-hold $tap-time $hold-time s lshift)
 )
 (defalias
-  ra (tap-hold $tap-time $hold-time ; lalt)
+  rm (tap-hold $tap-time $hold-time k lmet)
 )
 (defalias
   rc (tap-hold $tap-time $hold-time ' lctrl)
 )
 (defalias
-  rs (tap-hold $tap-time $hold-time \ lshift)
+  rs (tap-hold $tap-time $hold-time ; lshift)
 )
 (defalias
-  z (tap-hold 150 150 b lctrl)
+  z (tap-hold $tap-time $hold-time < lctrl)
+)
+(defalias
+  ragr (tap-hold $tap-time $hold-time d rctrl)
+)
+(defalias
+  ragrl (tap-hold $tap-time $hold-time l rctrl)
 )
 (deflayer base
-  @ls @lc @la @lm @rm @ra @rc @rs
+          @la       @ra
+  @lc @ls @ragr @lm @rm @ragrl @rs @rc
   @z
 )

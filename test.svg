@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400">
+  <style>
+    .key { fill: #f0f0f0; stroke: #000; stroke-width: 2; }
+    .text { font-family: Arial, sans-serif; font-size: 14px; text-anchor: middle; }
+    .base { fill: #000; }
+    .altgr { fill: #0000ff; }
+    .special { fill: #ff0000; }
+  </style>
+  
+  <!-- Define key rows -->
+  <g id="row1" transform="translate(10, 10)">
+    <!-- Row 1 keys -->
+    <rect class="key" x="0" y="0" width="40" height="40" />
+    <text class="text base" x="20" y="25">1</text>
+    <text class="text altgr" x="20" y="38">~</text>
+    
+    <rect class="key" x="50" y="0" width="40" height="40" />
+    <text class="text base" x="70" y="25">2</text>
+    <text class="text altgr" x="70" y="38">#</text>
+    
+    <!-- ... More keys for row 1 ... -->
+  </g>
+  
+  <g id="row2" transform="translate(25, 60)">
+    <!-- Row 2 keys -->
+    <rect class="key" x="0" y="0" width="40" height="40" />
+    <text class="text base" x="20" y="25">Q</text>
+    <text class="text altgr" x="20" y="38">!</text>
+    
+    <rect class="key" x="50" y="0" width="40" height="40" />
+    <text class="text base" x="70" y="25">W</text>
+    <text class="text altgr" x="70" y="38">@</text>
+    
+    <!-- ... More keys for row 2 ... -->
+  </g>
+  
+  <!-- ... More rows ... -->
+  
+  <!-- Legend -->
+  <g transform="translate(10, 340)">
+    <rect x="0" y="0" width="20" height="20" fill="#000" />
+    <text x="30" y="15" class="text">Base Layer</text>
+    
+    <rect x="150" y="0" width="20" height="20" fill="#0000ff" />
+    <text x="180" y="15" class="text">AltGr Layer</text>
+    
+    <rect x="300" y="0" width="20" height="20" fill="#ff0000" />
+    <text x="330" y="15" class="text">Special Keys</text>
+  </g>
+</svg>

@@ -2,9 +2,10 @@
   process-unmapped-keys yes
 )
 (defsrc
-      e     i
-  a s d f j k l ;
-  <
+                   -
+  q w e r   u i
+  a s d f   h j k l ;
+  < z x c           /
 )
 (defvar
 	
@@ -13,41 +14,39 @@
   hold-alt 200
   tap-alt 200
 )
-(defalias
-  lm (tap-hold $tap-time $hold-time f lmet)
-)
-(defalias
-  la (tap-hold $tap-alt $hold-alt e lalt)
-)
+
 (defalias
   ra (tap-hold $tap-alt $hold-alt i lalt)
-)
-(defalias
   lc (tap-hold $tap-time $hold-time a lctrl)
-)
-(defalias
   ls (tap-hold $tap-time $hold-time s rshift)
-)
-(defalias
   rm (tap-hold $tap-time $hold-time j lmet)
-)
-(defalias
   rc (tap-hold $tap-time $hold-time ; lctrl)
-)
-(defalias
   rs (tap-hold $tap-time $hold-time l rshift)
-)
-(defalias
+  lm (tap-hold $tap-time $hold-time f lmet)
+  la (tap-hold $tap-alt $hold-alt e lalt)
   z (tap-hold $tap-time $hold-time < lctrl)
-)
-(defalias
   ragr (tap-hold $tap-time $hold-time d ralt)
-)
-(defalias
   ragrl (tap-hold $tap-time $hold-time k ralt)
+  flechas (tap-hold $tap-time $hold-time r (layer-toggle arrows))
+  numbers (tap-hold $tap-time $hold-time u (layer-toggle numbers))
 )
+
 (deflayer base
-          @la       @ra
-  @lc @ls @ragr @lm @rm @ragrl @rs @rc
-  @z
+	                         Backspace
+  _   _   @la @flechas  @numbers   @ra
+  @lc @ls @ragr @lm _ @rm @ragrl @rs @rc
+  @z  _   _     _                Enter
+)
+
+(deflayer arrows
+	                         Delete
+  _   _   @la @flechas   _  @ra
+  @lc @ls @ragr @lm left down up right _
+  @z  _   _     _                Enter
+)
+(deflayer numbers
+	                        _
+  7 8 9 -       _ _
+  4 5 6 . _ _ _ _ _
+  1 2 3 0                       _
 )

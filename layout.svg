@@ -8,6 +8,7 @@
     .small { font-size: 10px; }
   </style>
   
+  <g id="keyboard" transform="translate(10, 10)">
     <!-- Row 1 -->
     <g transform="translate(0, 0)">
       <rect class="key" x="0" y="0" width="60" height="60" />
@@ -110,7 +111,7 @@
       <rect class="key" x="730" y="0" width="60" height="60" />
       <text class="text base" x="760" y="25">:</text>
       <text class="text base" x="760" y="45">;</text>
-      <text class="text altgr" x="760" y="55" class="small">=</text>
+      <text class="text altgr small" x="760" y="55" >=</text>
       
       <rect class="key" x="800" y="0" width="60" height="60" />
       <text class="text special" x="830" y="30">´</text>
@@ -209,7 +210,7 @@
       <rect class="key" x="630" y="0" width="60" height="60" />
       <text class="text base" x="660" y="25">,</text>
       <text class="text base" x="660" y="45">.</text>
-      <text class="text altgr" x="660" y="55" class="small">&gt;</text>
+      <text class="text altgr small" x="660" y="55" >&gt;</text>
       
       <rect class="key" x="700" y="0" width="60" height="60" />
       <text class="text base" x="730" y="25">.</text>
@@ -229,5 +230,6 @@
       
       <rect class="key" x="90" y="0" width="80" height="60" />
       <text class="text base" x="130" y="30">Win</text>
+    </g>
     </g>
 </svg>

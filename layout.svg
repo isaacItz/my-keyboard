@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500">
+  <style>
+    .key { fill: #f0f0f0; stroke: #000; stroke-width: 2; }
+    .text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; dominant-baseline: central; }
+    .base { fill: #000; }
+    .altgr { fill: #0000ff; }
+    .special { fill: #ff0000; }
+    .small { font-size: 10px; }
+  </style>
+  
+    <!-- Row 1 -->
+    <g transform="translate(0, 0)">
+      <rect class="key" x="0" y="0" width="60" height="60" />
+      <text class="text base" x="30" y="25">~</text>
+      <text class="text base" x="30" y="45">`</text>
+      
+      <rect class="key" x="70" y="0" width="60" height="60" />
+      <text class="text base" x="100" y="25">1</text>
+      <text class="text altgr" x="100" y="45">`</text>
+      
+      <rect class="key" x="140" y="0" width="60" height="60" />
+      <text class="text base" x="170" y="25">2</text>
+      <text class="text altgr" x="170" y="45">#</text>
+      
+      <rect class="key" x="210" y="0" width="60" height="60" />
+      <text class="text base" x="240" y="25">3</text>
+      <text class="text altgr" x="240" y="45">'</text>
+      
+      <rect class="key" x="280" y="0" width="60" height="60" />
+      <text class="text base" x="310" y="25">4</text>
+      <text class="text altgr" x="310" y="45">$</text>
+      
+      <rect class="key" x="350" y="0" width="60" height="60" />
+      <text class="text base" x="380" y="25">5</text>
+      <text class="text altgr" x="380" y="45">%</text>
+      
+      <rect class="key" x="420" y="0" width="60" height="60" />
+      <text class="text base" x="450" y="25">6</text>
+      <text class="text altgr" x="450" y="45">^</text>
+      
+      <rect class="key" x="490" y="0" width="60" height="60" />
+      <text class="text base" x="520" y="25">7</text>
+      <text class="text altgr" x="520" y="45">=</text>
+      
+      <rect class="key" x="560" y="0" width="60" height="60" />
+      <text class="text base" x="590" y="25">8</text>
+      <text class="text altgr" x="590" y="45">{}</text>
+      
+      <rect class="key" x="630" y="0" width="60" height="60" />
+      <text class="text base" x="660" y="25">9</text>
+      <text class="text altgr" x="660" y="45">()</text>
+      
+      <rect class="key" x="700" y="0" width="60" height="60" />
+      <text class="text base" x="730" y="25">0</text>
+      <text class="text altgr" x="730" y="45">[]</text>
+      
+      <rect class="key" x="770" y="0" width="60" height="60" />
+      <text class="text base" x="800" y="25">-</text>
+      <text class="text base" x="800" y="45">_</text>
+      
+      <rect class="key" x="840" y="0" width="60" height="60" />
+      <text class="text base" x="870" y="25">=</text>
+      <text class="text base" x="870" y="45">+</text>
+      
+      <rect class="key" x="910" y="0" width="120" height="60" />
+      <text class="text base" x="970" y="30">Backspace</text>
+    </g>
+    
+    <!-- Row 2 -->
+    <g transform="translate(0, 70)">
+      <rect class="key" x="0" y="0" width="90" height="60" />
+      <text class="text base" x="45" y="30">Tab</text>
+      
+      <rect class="key" x="100" y="0" width="60" height="60" />
+      <text class="text base" x="130" y="25">Q</text>
+      <text class="text altgr" x="130" y="45">!</text>
+      
+      <rect class="key" x="170" y="0" width="60" height="60" />
+      <text class="text base" x="200" y="25">W</text>
+      <text class="text altgr" x="200" y="45">@</text>
+      
+      <rect class="key" x="240" y="0" width="60" height="60" />
+      <text class="text base" x="270" y="25">F</text>
+      <text class="text altgr" x="270" y="45">&amp;</text>
+      
+      <rect class="key" x="310" y="0" width="60" height="60" />
+      <text class="text base" x="340" y="25">P</text>
+      <text class="text altgr" x="340" y="45">$</text>
+      
+      <rect class="key" x="380" y="0" width="60" height="60" />
+      <text class="text base" x="410" y="25">B</text>
+      <text class="text altgr" x="410" y="45">~</text>
+      
+      <rect class="key" x="450" y="0" width="60" height="60" />
+      <text class="text base" x="480" y="25">J</text>
+      <text class="text altgr" x="480" y="45">%</text>
+      
+      <rect class="key" x="520" y="0" width="60" height="60" />
+      <text class="text base" x="550" y="25">L</text>
+      <text class="text altgr" x="550" y="45">{</text>
+      
+      <rect class="key" x="590" y="0" width="60" height="60" />
+      <text class="text base" x="620" y="25">O</text>
+      <text class="text altgr" x="620" y="45">(</text>
+      
+      <rect class="key" x="660" y="0" width="60" height="60" />
+      <text class="text base" x="690" y="25">Y</text>
+      <text class="text altgr" x="690" y="45">[</text>
+      
+      <rect class="key" x="730" y="0" width="60" height="60" />
+      <text class="text base" x="760" y="25">:</text>
+      <text class="text base" x="760" y="45">;</text>
+      <text class="text altgr" x="760" y="55" class="small">=</text>
+      
+      <rect class="key" x="800" y="0" width="60" height="60" />
+      <text class="text special" x="830" y="30">´</text>
+      <text class="text base" x="830" y="50">-</text>
+      
+      <rect class="key" x="870" y="0" width="90" height="60" />
+      <text class="text special" x="915" y="30">´</text>
+      <text class="text base" x="915" y="50">~</text>
+    </g>
+    
+    <!-- Row 3 -->
+    <g transform="translate(0, 140)">
+      <rect class="key" x="0" y="0" width="110" height="60" />
+      <text class="text base" x="55" y="30">Caps Lock</text>
+      
+      <rect class="key" x="120" y="0" width="60" height="60" />
+      <text class="text base" x="150" y="25">A</text>
+      <text class="text altgr" x="150" y="45">`</text>
+      
+      <rect class="key" x="190" y="0" width="60" height="60" />
+      <text class="text base" x="220" y="25">R</text>
+      <text class="text altgr" x="220" y="45">'</text>
+      
+      <rect class="key" x="260" y="0" width="60" height="60" />
+      <text class="text base" x="290" y="25">S</text>
+      <text class="text altgr" x="290" y="45">"</text>
+      
+      <rect class="key" x="330" y="0" width="60" height="60" />
+      <text class="text base" x="360" y="25">T</text>
+      <text class="text altgr" x="360" y="45">+</text>
+      
+      <rect class="key" x="400" y="0" width="60" height="60" />
+      <text class="text base" x="430" y="25">G</text>
+      <text class="text altgr" x="430" y="45">^</text>
+      
+      <rect class="key" x="470" y="0" width="60" height="60" />
+      <text class="text base" x="500" y="25">M</text>
+      <text class="text altgr" x="500" y="45">ñ</text>
+      
+      <rect class="key" x="540" y="0" width="60" height="60" />
+      <text class="text base" x="570" y="25">N</text>
+      <text class="text altgr" x="570" y="45">*</text>
+      
+      <rect class="key" x="610" y="0" width="60" height="60" />
+      <text class="text base" x="640" y="25">E</text>
+      <text class="text altgr" x="640" y="45">-</text>
+      
+      <rect class="key" x="680" y="0" width="60" height="60" />
+      <text class="text base" x="710" y="25">I</text>
+      <text class="text altgr" x="710" y="45">_</text>
+      
+      <rect class="key" x="750" y="0" width="60" height="60" />
+      <text class="text base" x="780" y="25">U</text>
+      <text class="text altgr" x="780" y="45">/</text>
+      
+      <rect class="key" x="820" y="0" width="60" height="60" />
+      <text class="text special" x="850" y="30">¨</text>
+      
+      <rect class="key" x="890" y="0" width="140" height="60" />
+      <text class="text base" x="960" y="30">Enter</text>
+    </g>
+    
+    <!-- Row 4 -->
+    <g transform="translate(0, 210)">
+      <rect class="key" x="0" y="0" width="130" height="60" />
+      <text class="text base" x="65" y="30">Shift</text>
+      
+      <rect class="key" x="140" y="0" width="60" height="60" />
+      <text class="text base" x="170" y="25">Z</text>
+      <text class="text altgr" x="170" y="45">\</text>
+      
+      <rect class="key" x="210" y="0" width="60" height="60" />
+      <text class="text base" x="240" y="25">X</text>
+      <text class="text altgr" x="240" y="45">|</text>
+      
+      <rect class="key" x="280" y="0" width="60" height="60" />
+      <text class="text base" x="310" y="25">C</text>
+      <text class="text altgr" x="310" y="45">#</text>
+      
+      <rect class="key" x="350" y="0" width="60" height="60" />
+      <text class="text base" x="380" y="25">D</text>
+      <text class="text altgr" x="380" y="45">?</text>
+      
+      <rect class="key" x="420" y="0" width="60" height="60" />
+      <text class="text base" x="450" y="25">V</text>
+      <text class="text altgr" x="450" y="45">¿</text>
+      
+      <rect class="key" x="490" y="0" width="60" height="60" />
+      <text class="text base" x="520" y="25">K</text>
+      <text class="text altgr" x="520" y="45">¡</text>
+      
+      <rect class="key" x="560" y="0" width="60" height="60" />
+      <text class="text base" x="590" y="25">H</text>
+      <text class="text altgr" x="590" y="45">&lt;</text>
+      
+      <rect class="key" x="630" y="0" width="60" height="60" />
+      <text class="text base" x="660" y="25">,</text>
+      <text class="text base" x="660" y="45">.</text>
+      <text class="text altgr" x="660" y="55" class="small">&gt;</text>
+      
+      <rect class="key" x="700" y="0" width="60" height="60" />
+      <text class="text base" x="730" y="25">.</text>
+      <text class="text altgr" x="730" y="45">;</text>
+      
+      <rect class="key" x="770" y="0" width="60" height="60" />
+      <text class="text base" x="800" y="30">Return</text>
+      
+      <rect class="key" x="840" y="0" width="190" height="60" />
+      <text class="text base" x="935" y="30">Shift</text>
+    </g>
+    
+    <!-- Row 5 (bottom row) -->
+    <g transform="translate(0, 280)">
+      <rect class="key" x="0" y="0" width="80" height="60" />
+      <text class="text base" x="40" y="30">Ctrl</text>
+      
+      <rect class="key" x="90" y="0" width="80" height="60" />
+      <text class="text base" x="130" y="30">Win</text>
+    </g>
+</svg>

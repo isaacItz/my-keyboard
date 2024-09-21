@@ -3,50 +3,74 @@
 )
 (defsrc
                    -
-  q w e r   u i
-  a s d f   h j k l ;
-  < z x c           /
+  q w e r t  u i o p
+  a s d f g  h j k l ;
+  < z x c v          /
 )
 (defvar
-	
   tap-time 220
   hold-time 220
-  hold-alt 200
-  tap-alt 200
+  hold-alt 220
+  tap-alt 220
+  hold-symb 210
+  tap-symb 210
+  tap-accent 200
+  hold-accent 200
 )
-
 (defalias
-  ra (tap-hold $tap-alt $hold-alt i lalt)
+  td2 (tap-dance-eager 500 (
+    (macro <) ;; use macro to prevent auto-repeat of the key
+    (macro [ a)
+  ))
+  acute (macro [ a)
+  ecute (macro [ k)
+  icute (macro [ l)
+  ocute (macro [ i)
+  ucute (macro [ ;)
+)
+(defalias
+  ra (tap-hold $tap-alt $hold-alt u lalt)
   lc (tap-hold $tap-time $hold-time a lctrl)
   ls (tap-hold $tap-time $hold-time s rshift)
-  rm (tap-hold $tap-time $hold-time j lmet)
+  rm (tap-hold $tap-time $hold-time i lmet)
   rc (tap-hold $tap-time $hold-time ; lctrl)
   rs (tap-hold $tap-time $hold-time l rshift)
-  lm (tap-hold $tap-time $hold-time f lmet)
-  la (tap-hold $tap-alt $hold-alt e lalt)
-  z (tap-hold $tap-time $hold-time < lctrl)
-  ragr (tap-hold $tap-time $hold-time d ralt)
-  ragrl (tap-hold $tap-time $hold-time k ralt)
-  flechas (tap-hold $tap-time $hold-time r (layer-toggle arrows))
-  numbers (tap-hold $tap-time $hold-time u (layer-toggle numbers))
+  lm (tap-hold $tap-time $hold-time e lmet)
+  la (tap-hold $tap-alt $hold-alt r lalt)
+  ragr (tap-hold $tap-symb $hold-symb d ralt)
+  ragrl (tap-hold $tap-symb $hold-symb k ralt)
+  flechas (tap-hold $tap-time $hold-time f (layer-toggle arrows))
+  flechasp (tap-dance 200 (q (layer-switch arrows)))
+  go-base (layer-switch base)
+  numbers (tap-hold $tap-time $hold-time j (layer-toggle numbers))
+  numbersp (tap-dance 200 (p (layer-switch numbers)))
+  accents (tap-hold $tap-time $hold-time < (layer-toggle accents))
+  accentsy (tap-hold $tap-accent $hold-accent o (layer-toggle accents))
+  accentsw (tap-hold $tap-accent $hold-accent w (layer-toggle accents))
 )
 
 (deflayer base
 	                         Backspace
-  _   _   @la @flechas  @numbers   @ra
-  @lc @ls @ragr @lm _ @rm @ragrl @rs @rc
-  @z  _   _     _                Enter
+  @flechasp   @accentsw   @lm @la _    @ra @rm @accentsy @numbersp
+  @lc @ls @ragr @flechas _ _ @numbers @ragrl @rs @rc
+  _  _   _     _ _                Enter
 )
 
 (deflayer arrows
 	                         Delete
-  _   _   @la @flechas   _  @ra
-  @lc @ls @ragr @lm left down up right _
-  @z  _   _     _                Enter
+  @go-base   _   @ls _ _            _  up  _ _
+  _ @lc @ragr @flechas _ home left down right end
+  _  _   _     _ _                Enter
 )
 (deflayer numbers
 	                        _
-  7 8 9 -       _ _
-  4 5 6 . _ _ _ _ _
-  1 2 3 0                       _
+  - 7 8 9 🔢₊       _ _ _ @go-base
+  . 4 5 6 🔢₋ _ _ _ _ _
+  0 1 2 3 🔢₌                      _
+)
+(deflayer accents
+	                        _
+  _ _ _ _ _      _ @ocute _ _
+  @acute @ls _ _ _ _ _ @ecute @icute @ucute
+  _ _ _ _ _                      _
 )

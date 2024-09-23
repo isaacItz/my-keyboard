@@ -1,0 +1,10 @@
+[Unit]
+Description=Restart Kanata Service on Wake
+After=sleep.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemctl restart kanata
+
+[Install]
+WantedBy=sleep.target

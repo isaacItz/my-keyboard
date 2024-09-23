@@ -1,0 +1,15 @@
+[Unit]
+Description=Kanata tray
+Documentation=https://github.com/jtroo/kanata-tray
+
+[Service]
+User=root
+Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin
+Environment=DISPLAY=:0
+Environment=HOME=/home/lugo
+Type=simple
+ExecStart=/home/lugo/repos/keyboards/kanata/kanata-tray/kanata-tray-linux
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

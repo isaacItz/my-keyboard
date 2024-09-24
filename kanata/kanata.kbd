@@ -12,8 +12,8 @@
   hold-time 220
   hold-alt 220
   tap-alt 220
-  hold-symb 210
-  tap-symb 210
+  mayus 200
+  symbt 190
   tap-accent 200
   hold-accent 200
 )
@@ -31,14 +31,14 @@
 (defalias
   ra (tap-hold $tap-alt $hold-alt u lalt)
   lc (tap-hold $tap-time $hold-time a lctrl)
-  ls (tap-hold $tap-time $hold-time s rshift)
+  ls (tap-hold $mayus $mayus s rshift)
   rm (tap-hold $tap-time $hold-time i lmet)
   rc (tap-hold $tap-time $hold-time ; lctrl)
-  rs (tap-hold $tap-time $hold-time l rshift)
+  rs (tap-hold $mayus $mayus l rshift)
   lm (tap-hold $tap-time $hold-time e lmet)
   la (tap-hold $tap-alt $hold-alt r lalt)
-  ragr (tap-hold $tap-symb $hold-symb d ralt)
-  ragrl (tap-hold $tap-symb $hold-symb k ralt)
+  ragr (tap-hold $symbt $symbt d ralt)
+  ragrl (tap-hold $symbt $symbt k ralt)
   flechas (tap-hold $tap-time $hold-time f (layer-toggle arrows))
   flechasp (tap-dance 200 (q (layer-switch arrows)))
   go-base (layer-switch base)
@@ -64,9 +64,9 @@
 )
 (deflayer numbers
 	                        _
-  - 7 8 9 _       _ _ _ @go-base
-  _ 4 5 6 🔢₊ 🔢₌ 🔢． 🔢₋ . 🔢⁄
-  0 1 2 3 _                      _
+  5 6 7 8 9       _ _ _ @go-base
+  0 1 2 3 4   _ 🔢∗ 🔢₋ . 🔢⁄
+  🔢₌ 🔢⁄ 🔢∗ 🔢₋ 🔢₊                      _
 )
 (deflayer accents
 	                        _

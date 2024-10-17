@@ -12,10 +12,9 @@
   hold-time 220
   hold-alt 220
   tap-alt 220
-  mayus 200
+  mayus 180
   symbt 190
-  tap-accent 200
-  hold-accent 200
+  accentt 180
 )
 (defalias
   td2 (tap-dance-eager 500 (
@@ -31,6 +30,7 @@
 (defalias
   ra (tap-hold $tap-alt $hold-alt u lalt)
   lc (tap-hold $tap-time $hold-time a lctrl)
+  lc2 (tap-hold $tap-time $hold-time < lctrl)
   ls (tap-hold $mayus $mayus s rshift)
   rm (tap-hold $tap-time $hold-time i lmet)
   rc (tap-hold $tap-time $hold-time ; lctrl)
@@ -45,15 +45,15 @@
   numbers (tap-hold $tap-time $hold-time j (layer-toggle numbers))
   numbersp (tap-dance 200 (p (layer-switch numbers)))
   accents (tap-hold $tap-time $hold-time < (layer-toggle accents))
-  accentsy (tap-hold $tap-accent $hold-accent o (layer-toggle accents))
-  accentsw (tap-hold $tap-accent $hold-accent w (layer-toggle accents))
+  accentsy (tap-hold $accentt $accentt o (layer-toggle accents))
+  accentsw (tap-hold $accentt $accentt w (layer-toggle accents))
 )
 
 (deflayer base
 	                         Backspace
   @flechasp   @accentsw   @lm @la _    @ra @rm @accentsy @numbersp
   @lc @ls @ragr @flechas _ _ @numbers @ragrl @rs @rc
-  _  _   _     _ _                Enter
+  @lc2  _   _     _ _                Enter
 )
 
 (deflayer arrows

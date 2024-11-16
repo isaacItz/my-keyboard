@@ -3031,6 +3031,16 @@
         </variant>
 	<variant>
 	  <configItem>
+	    <name>wata_colemak_short</name>
+	    <shortDescription>colshort</shortDescription>
+	    <description>My custom colemak ISO</description>
+	    <languageList>
+		<iso639Id>eng</iso639Id>
+	    </languageList>
+	  </configItem>
+	</variant>
+	<variant>
+	  <configItem>
 	    <name>wata_colemak_us</name>
 	    <shortDescription>colus</shortDescription>
 	    <description>My custom colemak for us</description>

@@ -3,9 +3,9 @@
 )
 (defsrc
                    -
-  q w e r t   u i o p
-  a s d f g h j k l ;
-  < z x c v          /
+      q w e r t   u i o p
+      a s d f g h j k l ;
+ lsft < z x c v    m      /
 )
 (defvar
   tap-time 220
@@ -14,7 +14,7 @@
   tap-alt 220
   mayus 180
   symbt 190
-  accentt 180
+  accentt 150
 )
 (defalias
   td2 (tap-dance-eager 500 (
@@ -26,6 +26,8 @@
   icute (macro [ l)
   ocute (macro [ i)
   ucute (macro [ ;)
+  wa (macro w a)
+  wh (macro w m)
 )
 (defalias
   ra (tap-hold $tap-alt $hold-alt u lalt)
@@ -37,40 +39,71 @@
   rs (tap-hold $mayus $mayus l rshift)
   lm (tap-hold $tap-time $hold-time e lmet)
   la (tap-hold $tap-alt $hold-alt r lalt)
-  ragr (tap-hold $symbt $symbt d ralt)
-  ragrl (tap-hold $symbt $symbt k ralt)
+  ragr (tap-hold 137 $symbt d ralt)
+  ragrl (tap-hold 137 $symbt k ralt)
   flechas (tap-hold $tap-time $hold-time f (layer-toggle arrows))
-  flechasp (tap-dance 200 (q (layer-switch arrows)))
+  mouse (tap-hold $tap-time $hold-time w (layer-toggle mouse))
+  flechasp (tap-dance 200 (p (layer-switch arrows)))
   go-base (layer-switch base)
   numbers (tap-hold $tap-time $hold-time j (layer-toggle numbers))
-  numbersp (tap-dance 200 (p (layer-switch numbers)))
+  numbersp (tap-dance 200 (q (layer-switch numbers)))
   accents (tap-hold $tap-time $hold-time < (layer-toggle accents))
-  accentsy (tap-hold $accentt $accentt o (layer-toggle accents))
-  accentsw (tap-hold $accentt $accentt w (layer-toggle accents))
+  accentsy (tap-hold-press $accentt $accentt o (layer-toggle accents))
+  accentsw (tap-hold-press-timeout $accentt $accentt w (layer-toggle accents) w)
+)
+(defalias
+  cw (caps-word 2000)
+
+  ;; This example is similar to the default caps-word behaviour but it moves the
+  ;; 0-9 keys to the capitalized key list from the extra non-terminating key list.
+  cwc (caps-word-custom
+    2000
+    (a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 ; <)
+    (kp0 kp1 kp2 kp3 kp4 kp5 kp6 kp7 kp8 kp9 bspc del up down left rght)
+  )
 )
 
 (deflayer base
 	                         Backspace
-  @flechasp   @accentsw   @lm @la _    @ra @rm @accentsy @numbersp
-  @lc @ls @ragr @flechas _ _ @numbers @ragrl @rs @rc
-  @lc2  _   _     _ _                Enter
+     @numbersp   @mouse   @lm @la _    @ra @rm _ @flechasp
+     @lc @ls @ragr @flechas _ _ @numbers @ragrl @rs @rc
+ @cwc  _  _   _     _ _         _       Enter
+)
+
+(defalias
+  mouse-up (movemouse-accel-up 10 500 1 5)
+  mouse-down (movemouse-accel-down 10 500 1 5)
+  mouse-left (movemouse-accel-left 10 500 1 5)
+  mouse-right (movemouse-accel-right 10 500 1 5)
+)
+(deflayer mouse
+	                         Delete
+    @go-base   _   @ls _ _      mltp  @mouse-up  mrtp _
+    _ @lc @ragr @flechas _ home @mouse-left @mouse-down @mouse-right end
+ _  _  _   _     _ _          _      Enter
+)
+(deflayer mouse-second
+	                         Delete
+    @go-base   _   @ls _ _            mbtp  up  mrtp _
+    _ @lc @ragr @flechas _ home left down right end
+ _  _  _   _     _ _          _      Enter
 )
 
 (deflayer arrows
 	                         Delete
-  @go-base   _   @ls _ _            _  up  _ _
-  _ @lc @ragr @flechas _ home left down right end
-  _  _   _     _ _                Enter
+    @go-base   _   @ls _ _            mbtp  up  mftp _
+    _ @lc @ragr @flechas _ home left down right end
+ _  _  _   _     _ _          _      Enter
 )
 (deflayer numbers
 	                        _
-  5 6 7 8 9       _ _ _ @go-base
-  0 1 2 3 4   _ 🔢∗ 🔢₋ . 🔢⁄
-  🔢₌ 🔢⁄ 🔢∗ 🔢₋ 🔢₊                      _
+   5 6 7 8 9       _ _ _ @go-base
+   0 1 2 3 4   _ 🔢∗ 🔢₋ . 🔢⁄
+ _ 🔢₌ 🔢⁄ 🔢∗ 🔢₋ 🔢₊              _        _
 )
 (deflayer accents
 	                        _
-  _ _ _ _ _      _ @ocute _ _
-  @acute @ls _ _ _ _ _ @ecute @icute @ucute
-  _ _ _ _ _                      _
+   _ _ _ _ _      _ @ocute _ _
+   @wa @ls _ _ _ _ _ @ecute @icute @ucute
+ _ _ _ _ _ _              @wh        _
 )

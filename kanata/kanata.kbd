@@ -3,9 +3,10 @@
 )
 (defsrc
                    -
-      q w e r t   u i o p
+      q w e r t   u i o p [
       a s d f g h j k l ;
  lsft < z x c v    m      /
+ 		Space
 )
 (defvar
   tap-time 220
@@ -58,52 +59,63 @@
   ;; 0-9 keys to the capitalized key list from the extra non-terminating key list.
   cwc (caps-word-custom
     2000
-    (a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 ; <)
+    (a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 ; < .)
     (kp0 kp1 kp2 kp3 kp4 kp5 kp6 kp7 kp8 kp9 bspc del up down left rght)
   )
 )
 
 (deflayer base
 	                         Backspace
-     @numbersp   @mouse   @lm @la _    @ra @rm _ @flechasp
+     @numbersp   @mouse   @lm @la _    @ra @rm _ @flechasp @cwc
      @lc @ls @ragr @flechas _ _ @numbers @ragrl @rs @rc
  @cwc  _  _   _     _ _         _       Enter
+ 		Space
 )
 
 (defalias
-  mouse-up (movemouse-accel-up 10 500 1 5)
-  mouse-down (movemouse-accel-down 10 500 1 5)
-  mouse-left (movemouse-accel-left 10 500 1 5)
-  mouse-right (movemouse-accel-right 10 500 1 5)
+  mouse-up (movemouse-accel-up 10 1000 1 7)
+  mouse-down (movemouse-accel-down 10 1000 1 7)
+  mouse-left (movemouse-accel-left 10 1000 1 7)
+  mouse-right (movemouse-accel-right 10 1000 1 7)
+
+  mwu (mwheel-up 1 1)
+  mwd (mwheel-down 1 1)
+  mwl (mwheel-left 1 1)
+  mwr (mwheel-right 1 1)
 )
 (deflayer mouse
 	                         Delete
-    @go-base   _   @ls _ _      mltp  @mouse-up  mrtp _
-    _ @lc @ragr @flechas _ home @mouse-left @mouse-down @mouse-right end
+    @go-base   _   @ls _ _      mltp  @mouse-up  mrtp _  _
+    _ @lc (layer-while-held mouse-scroll) @flechas _ home @mouse-left @mouse-down @mouse-right end
  _  _  _   _     _ _          _      Enter
+ 		Space
 )
-(deflayer mouse-second
+(deflayer mouse-scroll
 	                         Delete
-    @go-base   _   @ls _ _            mbtp  up  mrtp _
-    _ @lc @ragr @flechas _ home left down right end
+    @go-base   _   @ls _ _      mltp  @mwu  mrtp _  _
+    _ @lc @ragr @flechas _ home @mwl @mwd @mwr end
  _  _  _   _     _ _          _      Enter
+ 		Space
 )
 
 (deflayer arrows
 	                         Delete
-    @go-base   _   @ls _ _            mbtp  up  mftp _
+    @go-base   _   @ls _ _            mbtp  up  mftp _  _
     _ @lc @ragr @flechas _ home left down right end
  _  _  _   _     _ _          _      Enter
+ 		Space
 )
 (deflayer numbers
 	                        _
-   5 6 7 8 9       _ _ _ @go-base
+   5 6 7 8 9       _ _ _ @go-base  _
    0 1 2 3 4   _ 🔢∗ 🔢₋ . 🔢⁄
  _ 🔢₌ 🔢⁄ 🔢∗ 🔢₋ 🔢₊              _        _
+ 		@go-base
 )
 (deflayer accents
 	                        _
-   _ _ _ _ _      _ @ocute _ _
+   _ _ _ _ _      _ @ocute _ _  _
    @wa @ls _ _ _ _ _ @ecute @icute @ucute
  _ _ _ _ _ _              @wh        _
+ 		Space
 )

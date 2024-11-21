@@ -1,0 +1,25 @@
+(defcfg
+  process-unmapped-keys yes
+)
+(defsrc
+      q w e r t y
+      Space
+)
+(deflayer base
+  q w e r t (layer-switch symbols)
+  Space
+)
+(deflayer symbols
+     (unicode !) (unicode @) (unicode &) (unicode $) (unicode ~) (layer-switch base)
+     Space
+)
+
+(defalias
+  sml (unicode 😀)
+  😀 (🔣 😀)
+  🙁 (unicode 🙁)
+)
+(deflayer has-happy-sad
+  @sml @🙁 @😀 🔣😀 @sml @sml
+  Space
+)

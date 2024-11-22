@@ -3,15 +3,16 @@
 )
 (defsrc
                    -
-      q w e r t   u i o p [
-      a s d f g h j k l ;
- lsft < z x c v    m      /
+ tab q w e r t y u i o p [
+ caps a s d f g h j k l ;
+ lsft < z x c v   n m      /
  		Space
 )
 (defvar
   tap-time 220
   hold-time 220
   hold-alt 220
+  control 203
   tap-alt 220
   mayus 180
   symbt 190
@@ -31,26 +32,27 @@
   wh (macro w m)
 )
 (defalias
-  ra (tap-hold $tap-alt $hold-alt u lalt)
-  lc (tap-hold $tap-time $hold-time a lctrl)
-  lc2 (tap-hold $tap-time $hold-time < lctrl)
-  ls (tap-hold $mayus $mayus s rshift)
-  rm (tap-hold $tap-time $hold-time i lmet)
-  rc (tap-hold $tap-time $hold-time ; lctrl)
-  rs (tap-hold $mayus $mayus l rshift)
-  lm (tap-hold $tap-time $hold-time e lmet)
-  la (tap-hold $tap-alt $hold-alt r lalt)
-  ragr (tap-hold 137 $symbt d ralt)
-  ragrl (tap-hold 137 $symbt k ralt)
-  flechas (tap-hold $tap-time $hold-time f (layer-toggle arrows))
-  mouse (tap-hold $tap-time $hold-time w (layer-toggle mouse))
+  ra (multi f24 (tap-hold $tap-alt $hold-alt u lalt))
+  lc (multi f24 (tap-hold $control $control a lctrl))
+  lc2 (multi f24 (tap-hold $control $control < lctrl))
+  ls (multi f24 (tap-hold $mayus $mayus s rshift))
+  rm (multi f24 (tap-hold-release-timeout $tap-time $hold-time i lmet lmet))
+  rc (multi f24 (tap-hold $control $control ; lctrl))
+  rs (multi f24 (tap-hold-except-keys $mayus $mayus l rshift (i)))
+  lm (multi f24 (tap-hold $tap-time $hold-time e lmet))
+  la (multi f24 (tap-hold $tap-alt $hold-alt r lalt))
+  ragr (multi f24 (tap-hold 137 $symbt d ralt))
+  ragrl (multi f24 (tap-hold 137 $symbt k ralt))
+  flechas (multi f24 (tap-hold $tap-time $hold-time f (layer-toggle arrows)))
+  mouse (multi f24 (tap-hold $tap-time $hold-time w (layer-toggle mouse)))
   flechasp (tap-dance 200 (p (layer-switch arrows)))
   go-base (layer-switch base)
-  numbers (tap-hold $tap-time $hold-time j (layer-toggle numbers))
+  go-mayus (layer-switch mayus)
+  numbers (multi f24 (tap-hold $tap-time $hold-time j (layer-toggle numbers)))
   numbersp (tap-dance 200 (q (layer-switch numbers)))
-  accents (tap-hold $tap-time $hold-time < (layer-toggle accents))
-  accentsy (tap-hold-press $accentt $accentt o (layer-toggle accents))
-  accentsw (tap-hold-press-timeout $accentt $accentt w (layer-toggle accents) w)
+  accents (multi f24 (tap-hold $tap-time $hold-time < (layer-toggle accents)))
+  accentsy (multi f24 (tap-hold-press $accentt $accentt o (layer-toggle accents)))
+  accentsw (multi f24 (tap-hold-press-timeout $accentt $accentt w (layer-toggle accents) w))
 )
 (defalias
   cw (caps-word 2000)
@@ -62,13 +64,15 @@
     (a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 ; < .)
     (kp0 kp1 kp2 kp3 kp4 kp5 kp6 kp7 kp8 kp9 bspc del up down left rght)
   )
+  mayus-alt-left (tap-hold 137 $symbt S-d ralt)
+  mayus-alt-right (tap-hold 137 $symbt S-k ralt)
 )
 
 (deflayer base
 	                         Backspace
-     @numbersp   @mouse   @lm @la _    @ra @rm _ @flechasp @cwc
-     @lc @ls @ragr @flechas _ _ @numbers @ragrl @rs @rc
- @cwc  _  _   _     _ _         _       Enter
+  _   @numbersp   @mouse   @lm @la _  _ @ra @rm _ @flechasp @go-mayus
+  _  @lc @ls @ragr @flechas _ _ @numbers @ragrl @rs @rc
+ @cwc  _  _   _     _ _       _  _       Enter
  		Space
 )
 
@@ -85,37 +89,45 @@
 )
 (deflayer mouse
 	                         Delete
-    @go-base   _   @ls _ _      mltp  @mouse-up  mrtp _  _
-    _ @lc (layer-while-held mouse-scroll) @flechas _ home @mouse-left @mouse-down @mouse-right end
- _  _  _   _     _ _          _      Enter
+ _  @go-base   _   @ls _ _    _ mltp  @mouse-up  mrtp _  _
+ _  _ @lc (layer-while-held mouse-scroll) @flechas _ home @mouse-left @mouse-down @mouse-right end
+ _  _  _   _     _ _       _  _      Enter
  		Space
 )
 (deflayer mouse-scroll
 	                         Delete
-    @go-base   _   @ls _ _      mltp  @mwu  mrtp _  _
-    _ @lc @ragr @flechas _ home @mwl @mwd @mwr end
- _  _  _   _     _ _          _      Enter
+ _  @go-base   _   @ls _ _    _ mltp  @mwu  mrtp _  _
+ _  _ @lc @ragr @flechas _ home @mwl @mwd @mwr end
+ _  _  _   _     _ _       _  _      Enter
  		Space
+)
+
+(deflayer mayus
+                   -
+ @go-base S-q S-w S-e S-r S-t S-y S-u S-i S-o S-p @go-base
+ _    S-a S-s @mayus-alt-left S-f S-g S-h S-j @mayus-alt-right S-l S-;
+ lrld S-< S-z S-x S-c S-v S-n S-m      /
+ 		(multi Space @go-base)
 )
 
 (deflayer arrows
 	                         Delete
-    @go-base   _   @ls _ _            mbtp  up  mftp _  _
-    _ @lc @ragr @flechas _ home left down right end
- _  _  _   _     _ _          _      Enter
+ _  @go-base   _   @ls _ _         _  mbtp  up  mftp _  _
+ _  _ @lc @ragr @flechas _ home left down right end
+ _  _  _   _     _ _        _ _      Enter
  		Space
 )
 (deflayer numbers
 	                        _
-   5 6 7 8 9       _ _ _ @go-base  _
-   0 1 2 3 4   _ 🔢∗ 🔢₋ . 🔢⁄
- _ 🔢₌ 🔢⁄ 🔢∗ 🔢₋ 🔢₊              _        _
+ @go-base 5 6 7 8 9     _ _ _ _ @go-base  _
+  _       0 1 2 3 4   _ 🔢∗ 🔢₋ . 🔢⁄
+  _       🔢₌ 🔢⁄ 🔢∗ 🔢₋ 🔢₊            _ _        _
  		@go-base
 )
 (deflayer accents
 	                        _
-   _ _ _ _ _      _ @ocute _ _  _
-   @wa @ls _ _ _ _ _ @ecute @icute @ucute
- _ _ _ _ _ _              @wh        _
+ _ _ _ _ _ _    _ _ @ocute _ _  _
+ _ @wa @ls _ _ _ _ _ @ecute @icute @ucute
+ _ _ _ _ _ _            _ @wh        _
  		Space
 )

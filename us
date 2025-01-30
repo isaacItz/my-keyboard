@@ -2361,66 +2361,68 @@ xkb_symbols "wata_colemak_us" {
 
 
     // move right side
-    key <AD11> {[ colon, semicolon, equal ] };
-    key <AD10> {[ dead_acute, semicolon, colon ]};
-    key <AD09> {[ y, Y, bracketleft ] };
-    key <AD08> {[ o, O, parenleft ] };
-    key <AD07> {[ l, L, braceleft ] };
+    key <AD11> {[ dead_acute, semicolon, equal ] };
+    key <AD10> {[ dead_acute, semicolon, exclamdown ]};
+    key <AD09> {[ y, Y, bracketright ] };
+    key <AD08> {[ o, O, bracketleft ] };
+    key <AD07> {[ l, L, ampersand ] };
+
     key <AD06> {[ j, J, percent  ] };
 
     key <BKSL> {[ dead_acute, asciitilde ]};
     key <AC11> {[ dead_diaeresis ]};
-    key <AC10> {[ u, U, slash ] };
+    key <AC10> {[ u, U, exclam ] };
     key <AC09> {[ i, I, underscore ] };
-    key <AC08> {[ e, E, minus ] };
-    key <AC07> {[ n, N, asterisk  ] };
+    key <AC08> {[ e, E, parenright ] };
+    key <AC07> {[ n, N, parenleft  ] };
     key <AC06> {[ m, M, ntilde ] };
 
     //key <RTRN>  { [ dead_acute ] };
-    key <AB10> {[ Return, Return  ] };
+    key <AB10> {[ Return, Return, exclam ] };
     key <AB09>  { [         period,          period,     equal    ] };
     key <AB08> {[ comma, period, greater ] };
     key <AB07> {[ h, H, less ] };
-    key <AB06> {[ k, K, exclamdown ] };
+    key <AB06> {[ k, K, semicolon ] };
     key <AB05> {[ z, Z, backslash ] };
 
 
 //left side 
 // apostrophe,	 quotedbl
-    key <AD01>	{[ q, Q, exclam ]};            // from <dead_diaeresis> <q>
-    key <AD02>	{[ w, W, at ]};                // from <dead_diaeresis> <w>
-    key <AD03>	{[ f, F, ampersand ]};           // from <dead_diaeresis> <f>
+    key <AD01>	{[ q, Q, at ]};            // from <dead_diaeresis> <q>
+    key <AD02>	{[ w, W, braceleft ]};                // from <dead_diaeresis> <w>
+    key <AD03>	{[ f, F, braceright ]};           // from <dead_diaeresis> <f>
     key <AD04>	{[ p, P, dollar ]};            // from <dead_diaeresis> <p>
     key <AD05>	{[ b, B, asciitilde ]};        // from <dead_diaeresis> <b>
 
     key <AC01>	{[ a, A, grave ]};         // from <dead_diaeresis> <a>
-    key <AC02>	{[ r, R, apostrophe ]};        // from <dead_diaeresis> <r>
-    key <AC03>	{[ s, S, quotedbl ]};          // from <dead_diaeresis> <s>
-    key <AC04>	{[ t, T, plus ]};              // from <dead_diaeresis> <t>
+    key <AC02>	{[ r, R, quotedbl ]};        // from <dead_diaeresis> <r>
+    key <AC03>	{[ s, S, apostrophe ]};          // from <dead_diaeresis> <s>
+    key <AC04>	{[ t, T, colon ]};              // from <dead_diaeresis> <t>
     key <AC05>	{[ g, G, asciicircum ]};       // from <dead_diaeresis> <g>
     //extra keys
          
     //key <LFSH>	{[ Shift_L ]};
-    key <LSGT>	{[ z, Z, backslash ]};
-    key <AB01>	{[ x, X, bar ]};               // from <dead_diaeresis> <x>
-    key <AB02>	{[ c, C, numbersign ]};        // from <dead_diaeresis> <c>
+    key <LSGT>	{[ z, Z, numbersign ]};
+    key <AB01>	{[ x, X, backslash ]};               // from <dead_diaeresis> <x>
+    key <AB02>	{[ c, C, bar ]};        // from <dead_diaeresis> <c>
     key <AB03>	{[ d, D, question ]};          // from <dead_diaeresis> <d>
     key <AB04>	{[ v, V, questiondown ]};      // from <dead_diaeresis> <v>
 
 
     // top row
     //key  <AD06> {[  q,  ISO_Left_Tab  ]};
+    key <TLDE> {[ Num_Lock,          asciitilde,     sterling,             dead_tilde            ]}; // @ ~ £ ~
     key <AE01> { [ 1,  grave ] };
-    key <AE02> { [ 2, numbersign,          2 ] };
-    key <AE03> { [ 3, apostrophe	,  3 ] };
-    key <AE04> { [ 4, dollar,      4 ] };
-    key <AE05> { [ 5, percent,     5 ] };
+    key <AE02> { [ 2, 2,          2 ] };
+    key <AE03> { [ dead_acute, 3	,  3 ] };
+    key <AE04> { [ BackSpace, Delete,      Delete ] };
+    key <AE05> { [ 5, percent,     braceright ] };
     key <AE06> { [ 6, asciicircum, 6 ] };
-    key <AE07>	{[ 7,  equal,	 plus		]};
-    key <AE08>	{[ 8, braceleft, braceright	]};
-    key <AE09> { [ 9, parenleft,   parenright ] };
-    key <AE10> { [ 0, bracketleft,  bracketright ] };
-    key <AE11> {[  BackSpace,  BackSpace,  Delete ]};
+    key <AE07>	{[ 7,  slash,	 plus		]};
+    key <AE08>	{[ apostrophe, bracketleft, bracketleft	]};
+    key <AE09> { [ apostrophe, bracketright,   bracketright ] };
+    key <AE10> { [ apostrophe, bracketleft,  bracketright ] };
+    key <AE11> {[  apostrophe,  BackSpace,  Delete ]};
 
     include "level3(ralt_switch)"
 };

@@ -2,29 +2,23 @@
 default partial alphanumeric_keys modifier_keys
 xkb_symbols "pc105" {
 
-    //key  <CAPS> {[  Caps_Lock  ]};
-    key  <TAB> {[  Tab,  ISO_Left_Tab, apostrophe  ]};
-    //key <ESC> {[  Escape  ]};
+    key  <ESC> {[  Escape  ]};
+    key  <TAB> {[  Tab,  ISO_Left_Tab  ]};
     key <CAPS> {[  Caps_Lock  ]};
-    key <ESC> {[ Escape  ]};
 
-    key <BKSP> {[  BackSpace,  BackSpace,  Delete ]};
+    key <BKSP> {[  BackSpace,  BackSpace  ]};
     key <BKSL> {[  backslash,  bar  ]};
-    //key <RTRN> {[  Return  ]};
+    key <RTRN> {[  Return  ]};
 
     // The extra key on many European keyboards:
-    //key <LSGT> {[  Control_L ]};
-    key <Ak02> {[  dead_diaeresis  ]};
-    //key <RTSH> {[ Alt_R ]};
+    key <LSGT> {[  less,  greater,    bar,  brokenbar  ]};
 
     key <SPCE> {[  space  ]};
 
     key <LFSH> {[  Shift_L    ]};
-    key <RTRN> {[  Return  ]};
+    key <RTSH> {[  Shift_R    ]};
     key <LCTL> {[  Control_L  ]};
-    //key <RCTL> {[ Shift_R ]};
-
-    //key <RTSH> {[ Shift_R ]};
+    key <RCTL> {[  Control_R  ]};
     key <LALT> {[  Alt_L,  Meta_L  ]};
     key <RALT> {[  Alt_R,  Meta_R  ]};
     key <LWIN> {[  Super_L    ]};
@@ -32,16 +26,15 @@ xkb_symbols "pc105" {
 
     key <MENU> {[  Menu  ]};
 
-    modifier_map Shift   { Shift_L };
+    modifier_map Shift   { Shift_L, Shift_R };
     modifier_map Lock    { Caps_Lock };
-    //modifier_map Control { Control_L, <LSGT> };
-    modifier_map Control { Control_L };
+    modifier_map Control { Control_L, Control_R };
     modifier_map Mod1    { Alt_L, Alt_R, Meta_L, Meta_R };
     modifier_map Mod2    { Num_Lock };
     modifier_map Mod4    { Super_L, Super_R };
 
     // Six fake keys for virtual<->real modifiers mapping:
-    key <LVL3> {[  ISO_Level3_Shift ]};
+    key <LVL3> {[  ISO_Level3_Shift  ]};
     modifier_map Mod5  { <LVL3> };
 
     key <LVL5> {[  ISO_Level5_Shift  ]};

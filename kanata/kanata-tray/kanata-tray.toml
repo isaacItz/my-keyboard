@@ -17,6 +17,10 @@ tcp_port = 5829 # if not specified, defaults to 5829
 base = 'base.ico'
 numbers = 'numbers.ico'
 arrows = 'arrows.ico'
+mayus = 'mayus.ico'
+mouse = 'mouse.ico'
+mouse-fast = 'flash.ico'
+mouse-scroll = 'mouse-scroll.ico'
 '*' = 'other.ico'
 
 [presets.'Main Preset']

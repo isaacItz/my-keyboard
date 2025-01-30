@@ -2,20 +2,21 @@
   process-unmapped-keys yes
 )
 (defsrc
-                   -
+        4          -
  tab q w e r t y u i o p [
  caps a s d f g h j k l ;
- lsft < z x c v   n m      /
+ lsft < z x c v   n m , .      /
  		Space
 )
 (defvar
   tap-time 220
   hold-time 220
-  hold-alt 220
-  control 203
+  hold-numbers 200
+  hold-alt 200
+  control 205
   tap-alt 220
-  mayus 180
-  symbt 190
+  mayus 170
+  symbt 191
   accentt 150
 )
 (defalias
@@ -33,22 +34,24 @@
 )
 (defalias
   ra (multi f24 (tap-hold $tap-alt $hold-alt u lalt))
-  lc (multi f24 (tap-hold $control $control a lctrl))
-  lc2 (multi f24 (tap-hold $control $control < lctrl))
-  ls (multi f24 (tap-hold $mayus $mayus s rshift))
-  rm (multi f24 (tap-hold-release-timeout $tap-time $hold-time i lmet lmet))
-  rc (multi f24 (tap-hold $control $control ; lctrl))
-  rs (multi f24 (tap-hold-except-keys $mayus $mayus l rshift (i)))
-  lm (multi f24 (tap-hold $tap-time $hold-time e lmet))
   la (multi f24 (tap-hold $tap-alt $hold-alt r lalt))
-  ragr (multi f24 (tap-hold 137 $symbt d ralt))
-  ragrl (multi f24 (tap-hold 137 $symbt k ralt))
+  rm (multi f24 (tap-hold-release-timeout $tap-time $hold-time i lmet lmet))
+  lm (multi f24 (tap-hold $tap-time $hold-time e lmet))
+  rc (multi f24 (tap-hold-except-keys $control $control n lctrl (k l)))
+  lc (multi f24 (tap-hold $control $control c lctrl))
+  lc2 (multi f24 (tap-hold $control $control < lctrl))
+  rs (multi f24 (tap-hold-except-keys $mayus $mayus l rshift (i k j h)))
+  rs2 (multi f24 (tap-hold-except-keys $mayus $mayus m rshift (i k j h)))
+  ls (multi f24 (tap-hold-except-keys $mayus $mayus s rshift (a)))
+  ragr (multi f24 (tap-hold 0 $symbt d ralt))
+  ragrl (multi f24 (tap-hold 0 $symbt k ralt))
   flechas (multi f24 (tap-hold $tap-time $hold-time f (layer-toggle arrows)))
   mouse (multi f24 (tap-hold $tap-time $hold-time w (layer-toggle mouse)))
   flechasp (tap-dance 200 (p (layer-switch arrows)))
   go-base (layer-switch base)
   go-mayus (layer-switch mayus)
-  numbers (multi f24 (tap-hold $tap-time $hold-time j (layer-toggle numbers)))
+  numbers (multi f24 (tap-hold 0 $hold-numbers j (layer-toggle numbers)))
+  numbers2 (multi f24 (tap-hold $tap-time $hold-time h (layer-toggle numbers)))
   numbersp (tap-dance 200 (q (layer-switch numbers)))
   accents (multi f24 (tap-hold $tap-time $hold-time < (layer-toggle accents)))
   accentsy (multi f24 (tap-hold-press $accentt $accentt o (layer-toggle accents)))
@@ -69,65 +72,103 @@
 )
 
 (deflayer base
-	                         Backspace
+	  Backspace                       Backspace
   _   @numbersp   @mouse   @lm @la _  _ @ra @rm _ @flechasp @go-mayus
-  _  @lc @ls @ragr @flechas _ _ @numbers @ragrl @rs @rc
- @cwc  _  _   _     _ _       _  _       Enter
+  _  _ @ls @ragr @flechas _ @numbers2 @numbers @ragrl @rs _
+ @cwc  _  _   _     @lc _       @rc @rs2 _ _      _
  		Space
 )
 
 (defalias
-  mouse-up (movemouse-accel-up 10 1000 1 7)
-  mouse-down (movemouse-accel-down 10 1000 1 7)
-  mouse-left (movemouse-accel-left 10 1000 1 7)
-  mouse-right (movemouse-accel-right 10 1000 1 7)
+  go-mouse (layer-switch mouse)
+  mouse-up (movemouse-accel-up 8 1000 2 5)
+  mouse-down (movemouse-accel-down 8 1000 2 5)
+  mouse-left (movemouse-accel-left 8 1000 2 5)
+  mouse-right (movemouse-accel-right 8 1000 2 5)
+
+  ms↑ (movemouse-up 6 5)
+  ms↓ (movemouse-down 6 5)
+  ms← (movemouse-left 6 6)
+  ms→ (movemouse-right 6 6)
 
   mwu (mwheel-up 1 1)
   mwd (mwheel-down 1 1)
   mwl (mwheel-left 1 1)
   mwr (mwheel-right 1 1)
+
+  mwuf (mwheel-up 1 7)
+  mwdf (mwheel-down 1 2)
+  mwlf (mwheel-left 1 2)
+  mwrf (mwheel-right 1 2)
+
+  scrlu (tap-dance-eager 200 ((layer-while-held mouse-scroll) @mwuf))
 )
 (deflayer mouse
-	                         Delete
- _  @go-base   _   @ls _ _    _ mltp  @mouse-up  mrtp _  _
- _  _ @lc (layer-while-held mouse-scroll) @flechas _ home @mouse-left @mouse-down @mouse-right end
- _  _  _   _     _ _       _  _      Enter
+	  _                      Delete
+ @go-base  @go-base   @mouse @go-mouse (layer-while-held mouse-fast) _    _ mlft  @mouse-up  mrtp menu  _
+ @go-base  lctrl @lc (layer-while-held mouse-scroll) (layer-while-held mouse-fast) _ home @mouse-left @mouse-down @mouse-right _
+ _  _  _   _     _ _       _  mmtp _ _      _
  		Space
 )
+(deflayer mouse-fast
+	  _                      Delete
+ @go-base  @go-base   @mouse @go-mouse mlft _    _ mltp  @ms↑  mrtp _  _
+ @go-base  _ @lc (layer-while-held mouse-scroll) mltp _ home @ms← @ms↓ @ms→ end
+ _  _  _   _     _ _       _  _ _ _     Enter
+ 		Space
+)
+(defalias
+)
 (deflayer mouse-scroll
-	                         Delete
+	  _                      Delete
  _  @go-base   _   @ls _ _    _ mltp  @mwu  mrtp _  _
  _  _ @lc @ragr @flechas _ home @mwl @mwd @mwr end
- _  _  _   _     _ _       _  _      Enter
+ _  _  _   _     _ _       _  _ _ _    Enter
+ 		Space
+)
+
+(deflayer mouse-scroll-slow
+	  _                      Delete
+ _  @go-base   _   @ls _ _    _ mltp  @mwu  mrtp _  _
+ _  _ @lc @ragr @flechas _ home @mwl @mwd @mwr end
+ _  _  _   _     _ _       _  _ _ _    Enter
+ 		Space
+)
+
+(deflayer mouse-scroll-fast
+	  _                      Delete
+ _  @go-base   _   @ls _ _    _ mltp  @mwuf  mrtp _  _
+ _  _ @lc @ragr @flechas _ home @mwlf @mwdf @mwrf end
+ _  _  _   _     _ _       _  _ _ _    Enter
  		Space
 )
 
 (deflayer mayus
-                   -
- @go-base S-q S-w S-e S-r S-t S-y S-u S-i S-o S-p @go-base
- _    S-a S-s @mayus-alt-left S-f S-g S-h S-j @mayus-alt-right S-l S-;
- lrld S-< S-z S-x S-c S-v S-n S-m      /
+	  _                      Backspace
+ @go-base S-q S-w S-e S-r S-t S-y S-u S-i S-o RA-l @go-base
+ @go-base    S-a S-s @mayus-alt-left S-f S-g S-h S-j @mayus-alt-right S-l S-;
+ lrld S-< S-z S-x S-c S-v S-n S-m _ _     (multi Enter @go-base)
  		(multi Space @go-base)
 )
 
 (deflayer arrows
-	                         Delete
- _  @go-base   _   @ls _ _         _  mbtp  up  mftp _  _
- _  _ @lc @ragr @flechas _ home left down right end
- _  _  _   _     _ _        _ _      Enter
+	  _                      Delete
+ @go-base  @go-base   menu   @ls _ _         _  mbtp  up  mftp menu  @go-base
+ @go-base  _ @lc 🔢⁄ @flechas _ home left down right end
+ _  _  _   _     _ _ _ _ pgdn pgup     Enter
  		Space
 )
 (deflayer numbers
-	                        _
- @go-base 5 6 7 8 9     _ _ _ _ @go-base  _
-  _       0 1 2 3 4   _ 🔢∗ 🔢₋ . 🔢⁄
-  _       🔢₌ 🔢⁄ 🔢∗ 🔢₋ 🔢₊            _ _        _
+	  Delete                      Delete
+ @go-base 🔢₅ 🔢₆ 🔢₇ 🔢₈ 🔢₉     _ _ (tap-hold 220 220 RA-m lalt) 🔢⁄ @go-base  _
+ @go-base 🔢₀ 🔢₁ 🔢₂ 🔢₃ 🔢₄    ▶⏸ _ 🔢₋ RA-, 🔢⁄
+  _       _   🔢₌ 🔢⁄ 🔢∗ 🔢₊            _ _ _ _       (multi Enter @go-base)
  		@go-base
 )
 (deflayer accents
-	                        _
+	  _                      Delete
  _ _ _ _ _ _    _ _ @ocute _ _  _
  _ @wa @ls _ _ _ _ _ @ecute @icute @ucute
- _ _ _ _ _ _            _ @wh        _
+ _ _ _ _ _ _            _ @wh  _ _       _
  		Space
 )

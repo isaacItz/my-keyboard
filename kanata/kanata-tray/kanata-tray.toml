@@ -24,6 +24,6 @@ mouse-scroll = 'mouse-scroll.ico'
 '*' = 'other.ico'
 
 [presets.'Main Preset']
-kanata_executable = '/home/lugo/.local/bin/kanata' # if empty or omitted, system $PATH will be searched.
-kanata_config = '/home/lugo/repos/keyboards/kanata/kanata.kbd' # if empty or not omitted, kanata default config locations will be used.
+kanata_executable = './kanata' # if empty or omitted, system $PATH will be searched.
+kanata_config = '../kanata.kbd' # if empty or not omitted, kanata default config locations will be used.
 autorun = true

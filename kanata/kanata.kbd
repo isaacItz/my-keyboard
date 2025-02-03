@@ -45,7 +45,7 @@
   ls (multi f24 (tap-hold-except-keys $mayus $mayus s rshift (a)))
   ragr (multi f24 (tap-hold 0 $symbt d ralt))
   ragrl (multi f24 (tap-hold 0 $symbt k ralt))
-  flechas (multi f24 (tap-hold $tap-time $hold-time f (layer-toggle arrows)))
+  flechas (multi f24 (tap-hold 0 $hold-time f (layer-toggle arrows)))
   mouse (multi f24 (tap-hold $tap-time $hold-time w (layer-toggle mouse)))
   flechasp (tap-dance 200 (p (layer-switch arrows)))
   go-base (layer-switch base)

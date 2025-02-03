@@ -4,7 +4,7 @@ Documentation=https://github.com/jtroo/kanata
 
 [Service]
 Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin
-Environment=DISPLAY=:0
+Environment=DISPLAY=:1
 Environment=HOME=/home/lugo
 Type=simple
 ExecStart=/home/lugo/.local/bin/kanata --cfg /home/lugo/repos/keyboards/kanata/kanata.kbd

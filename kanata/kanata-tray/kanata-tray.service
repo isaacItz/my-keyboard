@@ -1,6 +1,8 @@
 [Unit]
 Description=Kanata tray
 Documentation=https://github.com/jtroo/kanata-tray
+After=graphical.target
+Requires=graphical.target
 
 [Service]
 User=root
@@ -8,15 +10,10 @@ Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin
 Environment=DISPLAY=:1
 Environment=HOME=/home/isv
 Type=simple
-WorkingDirectory=/home/isv/repos/keyboards/kanata/kanata-tray/
-ExecStart=/bin/bash -c ' \
-#!/bin/bash \n\
-sleep 20 \n\
-export XAUTHORITY=$(find /run/user/1000/ -name 'xauth*' -type f -print -quit) \n\
-env \n\
-./kanata-tray-linux \
-'
+WorkingDirectory=/home/isv/repos/keyboards/kanata/kanata-tray
+ExecStart=/home/isv/repos/keyboards/kanata/kanata-tray/start-kanata-tray.sh
+ExecStartPre=/bin/sleep 2
 Restart=always
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

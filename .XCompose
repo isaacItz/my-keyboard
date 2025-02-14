@@ -5241,14 +5241,14 @@
 <dead_diaeresis> <f>			: "%"	percent # PERCENT SIGN
 <dead_diaeresis> <p>			: "$"	dollar # DOLLAR SIGN
 <dead_diaeresis> <b>			: "~"	asciitilde # TILDE
-<dead_diaeresis> <j>			: "|"	bar # VERTICAL LINE
+<dead_diaeresis> <j>			: "`"	grave # GRAVE ACCENT
 <dead_diaeresis> <l>			: "{"	braceleft # DIGIT SEVEN
-<dead_diaeresis> <u>			: "/"	slash # SOLIDUS
+<dead_diaeresis> <u>			: "ü"	
 <dead_diaeresis> <y>			: "["	bracketleft # DIGIT NINE
-<dead_diaeresis> <colon>		: "="	equals # DIGIT ZERO
+#<dead_diaeresis> <colon>		: "="	equals # DIGIT ZERO
 #home row arstgneio:
 <dead_diaeresis> <a>			: ";"	semicolon # VERTICAL LINE
-<dead_diaeresis> <r>			: "#"	numbersign # NUMBER SIGN
+<dead_diaeresis> <r>			: "&"	numbersign # NUMBER SIGN
 <dead_diaeresis> <s>			: "\""	quotedbl # QUOTATION MARK
 <dead_diaeresis> <t>			: "+"	plus # PLUS SIGN
 <dead_diaeresis> <g>			: "^"	asciicircum # CIRCUMFLEX ACCENT
@@ -5260,7 +5260,7 @@
 #low row xcdvzkh,
 <dead_diaeresis> <z>			: "\\"	backslash # REVERSE SOLIDUS
 <dead_diaeresis> <x>			: "|"	bar # LATIN SMALL LETTER Z
-<dead_diaeresis> <c>			: "x"	x # LATIN SMALL LETTER X
+<dead_diaeresis> <c>			: "#"	x # LATIN SMALL LETTER X
 <dead_diaeresis> <d>			: "?"	question # LATIN SMALL LETTER C
 <dead_diaeresis> <v>			: "¿"	questiondown # LATIN SMALL LETTER V
 <dead_diaeresis> <k>			: "<"	less # LESS-THAN SIGN
@@ -5274,7 +5274,7 @@
 <dead_diaeresis> <0>			: "]"	bracketright # DIGIT ZERO
 <dead_diaeresis> <8>			: "}"	braceright # RIGHT CURLY BRACKET
 <dead_diaeresis> <9>			: ")"	parenright # RIGHT PARENTHESIS
-<dead_diaeresis> <numbersign>			: "2"	2 # DIGIT TWO
-<dead_diaeresis> <apostrophe>			: "3"	3 # DIGIT THREE
-<dead_diaeresis> <asciicircum>			: "6"	6 # DIGIT SIX
-<dead_diaeresis> <ampersand>			: "7"	7 # DIGIT SEVEN
+# <dead_diaeresis> <numbersign>			: "2"	2 # DIGIT TWO
+# <dead_diaeresis> <apostrophe>			: "3"	3 # DIGIT THREE
+# <dead_diaeresis> <asciicircum>			: "6"	6 # DIGIT SIX
+# <dead_diaeresis> <ampersand>			: "7"	7 # DIGIT SEVEN

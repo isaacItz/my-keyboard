@@ -40,9 +40,9 @@
   rc (multi f24 (tap-hold-except-keys $control $control n lctrl (k l)))
   lc (multi f24 (tap-hold $control $control c lctrl))
   lc2 (multi f24 (tap-hold $control $control < lctrl))
-  rs (multi f24 (tap-hold-except-keys $mayus $mayus l rshift (i k j h)))
+  rs (multi f24 (tap-hold-except-keys 0 $mayus l rshift (i k j h)))
   rs2 (multi f24 (tap-hold-except-keys $mayus $mayus m rshift (i k j h)))
-  ls (multi f24 (tap-hold-except-keys $mayus $mayus s rshift (a)))
+  ls (multi f24 (tap-hold-except-keys 0 $mayus s rshift (a)))
   ragr (multi f24 (tap-hold 0 $symbt d ralt))
   ragrl (multi f24 (tap-hold 0 $symbt k ralt))
   flechas (multi f24 (tap-hold 0 $hold-time f (layer-toggle arrows)))
@@ -105,14 +105,14 @@
 )
 (deflayer mouse
 	  _                      Delete
- @go-base  @go-base   @mouse @go-mouse (layer-while-held mouse-fast) _    _ mlft  @mouse-up  mrtp menu  _
+ @go-base  mlft   @mouse @go-mouse (layer-while-held mouse-fast) _    _ mlft  @mouse-up  mrtp menu  _
  @go-base  lctrl @lc (layer-while-held mouse-scroll) (layer-while-held mouse-fast) _ home @mouse-left @mouse-down @mouse-right _
  _  _  _   _     _ _       _  mmtp _ _      _
  		Space
 )
 (deflayer mouse-fast
 	  _                      Delete
- @go-base  @go-base   @mouse @go-mouse mlft _    _ mltp  @ms↑  mrtp _  _
+ @go-base  mlft   @mouse @go-mouse mlft _    _ mltp  @ms↑  mrtp _  _
  @go-base  _ @lc (layer-while-held mouse-scroll) mltp _ home @ms← @ms↓ @ms→ end
  _  _  _   _     _ _       _  _ _ _     Enter
  		Space

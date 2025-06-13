@@ -56,7 +56,7 @@
 (defalias
   ra (tap-hold $tap-alt $hold-alt l lalt)
   la (tap-hold $tap-alt $hold-alt p lalt)
-  rm (tap-hold-release-timeout $tap-time $hold-time o lmet lmet)
+  rm (tap-hold $tap-time $hold-time o lmet)
   lm (tap-hold $tap-time $hold-time f lmet)
   rc (tap-hold-except-keys $control $control k lctrl (i))
   lc (tap-hold $control $control d lctrl)

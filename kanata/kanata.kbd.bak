@@ -1,0 +1,199 @@
+(defcfg
+  process-unmapped-keys yes
+)
+(defsrc
+esc
+        4       9   -
+ tab q w e r t y u i o p [
+ caps a s d f g h j k l ;
+ lsft < z x c v   n m , .      /
+ 		Space
+)
+(defvar
+  tap-time 220
+  hold-time 220
+  hold-numbers 200
+  hold-alt 200
+  control 205
+  tap-alt 220
+  mayus 190
+  symbt 191
+  accentt 150
+)
+(defalias
+  td2 (tap-dance-eager 500 (
+    (macro <) ;; use macro to prevent auto-repeat of the key
+    (macro [ a)
+  ))
+  acute (macro [ a)
+  ecute (macro [ k)
+  icute (macro [ l)
+  ocute (macro [ i)
+  ucute (macro [ ;)
+  wa (macro w a)
+  wh (macro w m)
+)
+(defalias
+  ra (multi f24 (tap-hold $tap-alt $hold-alt u lalt))
+  la (multi f24 (tap-hold $tap-alt $hold-alt r lalt))
+  rm (multi f24 (tap-hold-release-timeout $tap-time $hold-time i lmet lmet))
+  lm (multi f24 (tap-hold $tap-time $hold-time e lmet))
+  rc (multi f24 (tap-hold-except-keys $control $control n lctrl (k l)))
+  lc (multi f24 (tap-hold $control $control c lctrl))
+  lc2 (multi f24 (tap-hold $control $control < lctrl))
+  rs (multi f24 (tap-hold-except-keys 0 $mayus l rshift (i k j h)))
+  rs2 (multi f24 (tap-hold-except-keys $mayus $mayus m (multi lctrl rshift) (i k j h)))
+  ls (multi f24 (tap-hold-except-keys 0 $mayus s rshift (a)))
+  ragr (multi f24 (tap-hold 0 $symbt d ralt))
+  ragrl (multi f24 (tap-hold 0 $symbt k ralt))
+  flechas (multi f24 (tap-hold 0 $hold-time f (layer-toggle arrows)))
+  mouse (multi f24 (tap-hold $tap-time $hold-time w (layer-toggle mouse)))
+  flechasp (tap-dance 200 (p (layer-switch arrows)))
+  go-base (layer-switch base)
+  go-mayus (layer-switch mayus)
+  go-flayer (multi f24 (tap-hold 0 $mayus . (layer-toggle f-layer)))
+  numbers (multi f24 (tap-hold 0 $hold-numbers j (layer-toggle numbers)))
+  numbers2 (multi f24 (tap-hold $tap-time $hold-time h (layer-toggle numbers)))
+  numbersp (tap-dance 200 (q (layer-switch numbers)))
+  accents (multi f24 (tap-hold $tap-time $hold-time < (layer-toggle accents)))
+  accentsy (multi f24 (tap-hold-press $accentt $accentt o (layer-toggle accents)))
+  accentsw (multi f24 (tap-hold-press-timeout $accentt $accentt w (layer-toggle accents) w))
+  ctalt (multi f24 (tap-hold 200 200 o (multi alt lctrl)))
+  c-s (multi lctrl rshft)
+  ñ (multi ralt b)
+  atras (multi lalt left)
+  adelante (multi lalt right)
+)
+(defalias
+  cw (caps-word 2000)
+
+  ;; This example is similar to the default caps-word behaviour but it moves the
+  ;; 0-9 keys to the capitalized key list from the extra non-terminating key list.
+  cwc (caps-word-custom
+    2000
+    (a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 ; < .)
+    (kp0 kp1 kp2 kp3 kp4 kp5 kp6 kp7 kp8 kp9 bspc del up down left rght)
+  )
+  mayus-alt-left (tap-hold 137 $symbt S-d ralt)
+  mayus-alt-right (tap-hold 137 $symbt S-k ralt)
+)
+
+(deflayer base
+caps
+	  Backspace                @go-mayus       Backspace
+  _   @numbersp   @mouse   @lm @la _  _ @ra @rm @ctalt @flechasp @go-mayus
+  esc  _ @ls @ragr @flechas _ @numbers2 @numbers @ragrl @rs _
+  _  _  _   _     @lc _       @rc @rs2 _ @go-flayer      Enter
+ 		Space
+)
+
+(defalias
+  go-mouse (layer-switch mouse)
+  mouse-up (movemouse-accel-up 8 1000 2 5)
+  mouse-down (movemouse-accel-down 8 1000 2 5)
+  mouse-left (movemouse-accel-left 8 1000 2 5)
+  mouse-right (movemouse-accel-right 8 1000 2 5)
+
+  ms↑ (movemouse-up 6 5)
+  ms↓ (movemouse-down 6 5)
+  ms← (movemouse-left 6 6)
+  ms→ (movemouse-right 6 6)
+
+  mwu (mwheel-up 1 1)
+  mwd (mwheel-down 1 1)
+  mwl (mwheel-left 1 1)
+  mwr (mwheel-right 1 1)
+
+  mwuf (mwheel-up 1 7)
+  mwdf (mwheel-down 1 2)
+  mwlf (mwheel-left 1 2)
+  mwrf (mwheel-right 1 2)
+
+  scrlu (tap-dance-eager 200 ((layer-while-held mouse-scroll) @mwuf))
+)
+(deflayer mouse
+caps
+	  _                 _     Delete
+ caps  mlft   @mouse @go-mouse (layer-while-held mouse-fast) _    _ mlft  @mouse-up  mrtp menu  _
+ @go-base  lctrl @lc (layer-while-held mouse-scroll) (layer-while-held mouse-fast) _ home @mouse-left @mouse-down @mouse-right _
+ _  _  _   _     _ _       _  mmtp _ _      _
+ 		Space
+)
+(deflayer mouse-fast
+caps
+	  _                 _     Delete
+ @go-base  mlft   @mouse @go-mouse mlft _    _ mltp  @ms↑  mrtp _  _
+ @go-base  _ @lc (layer-while-held mouse-scroll) mltp _ home @ms← @ms↓ @ms→ end
+ _  _  _   _     _ _       _  _ _ _     Enter
+ 		Space
+)
+(defalias
+)
+(deflayer mouse-scroll
+caps
+	  _                 _     Delete
+ _  @go-base   _   @ls _ _    _ mltp  @mwu  mrtp _  _
+ _  _ @lc @ragr @flechas _ home @mwl @mwd @mwr end
+ _  _  _   _     _ _       _  _ _ _    Enter
+ 		Space
+)
+
+(deflayer mouse-scroll-slow
+caps
+	  _                 _     Delete
+ _  @go-base   _   @ls _ _    _ mltp  @mwu  mrtp _  _
+ _  _ @lc @ragr @flechas _ home @mwl @mwd @mwr end
+ _  _  _   _     _ _       _  _ _ _    Enter
+ 		Space
+)
+
+(deflayer mouse-scroll-fast
+caps
+	  _                 _     Delete
+ _  @go-base   _   @ls _ _    _ mltp  @mwuf  mrtp _  _
+ _  _ @lc @ragr @flechas _ home @mwlf @mwdf @mwrf end
+ _  _  _   _     _ _       _  _ _ _    Enter
+ 		Space
+)
+
+(deflayer mayus
+caps
+	  _                 @go-base     Backspace
+ @go-base S-q S-w S-e S-r S-t S-y S-u S-i S-o RA-l @go-base
+ @go-base    S-a S-s @mayus-alt-left S-f S-g S-h S-j @mayus-alt-right S-l S-;
+ lrld S-< S-z S-x S-c S-v S-n S-m _ _     (multi Enter @go-base)
+ 		(multi Space @go-base)
+)
+
+(deflayer arrows
+caps
+	  _                _      Delete
+ @go-base  @go-base   menu   @ls _ volu         _  @atras  up  @adelante menu  @go-base
+ @go-base  _ @lc @ñ @flechas mute home left down right end
+ _  _  _   _     _ vold _ _ pgdn pgup     Enter
+ 		Space
+)
+(deflayer numbers
+caps
+	  Delete               _       Delete
+ @go-base 🔢₅ 🔢₆ 🔢₇ 🔢₈ 🔢₉     prev _ (tap-hold 220 220 🔢⁄ lalt) RA-m @go-base  _
+ @go-base 🔢₀ 🔢₁ 🔢₂ 🔢₃ 🔢₄    ▶⏸ _ 🔢₋ RA-, 🔢⁄
+  _       _   🔢₌ 🔢⁄ 🔢∗ 🔢₊            next _ _ _       (multi Enter @go-base)
+ 		@go-base
+)
+(deflayer f-layer
+caps
+	  _               _       Delete
+ _ F1 F2 F3 F4 F5    _ _ @ocute _ _  _
+ _ sleep brdown brup _ _ _ _ @ecute @icute @ucute
+ F12 F11 F10 F9 _ _            _ lalt  lctrl _       rshift
+ 		Space
+)
+(deflayer accents
+caps
+	  _               _       Delete
+ _ _ _ _ _ _    _ _ @ocute _ _  _
+ _ @wa @ls _ _ _ _ _ @ecute @icute @ucute
+ _ _ _ _ _ _            _ @wh  _ _       _
+ 		Space
+)

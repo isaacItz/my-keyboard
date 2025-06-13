@@ -1,6 +1,7 @@
 [Unit]
 Description=Kanata tray
 Documentation=https://github.com/jtroo/kanata-tray
+# ConditionPathExists=!/dev/input/by-id/usb-DH747_W-CORNE_vial:f64c2b3c-event-kbd
 After=graphical.target
 Requires=graphical.target
 
@@ -12,7 +13,7 @@ Environment=HOME=/home/isv
 Type=simple
 WorkingDirectory=/home/isv/repos/keyboards/kanata/kanata-tray
 ExecStart=/home/isv/repos/keyboards/kanata/kanata-tray/start-kanata-tray.sh
-ExecStartPre=/bin/sleep 2
+# ExecStartPre=/bin/sleep 2
 Restart=always
 
 [Install]

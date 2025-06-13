@@ -1,0 +1,21 @@
+2025-06-12T18:16:27.328630966-06:00 INFO kanata-tray config folder: /home/isv/repos/keyboards/kanata/kanata-tray
+2025-06-12T18:16:27.330616625-06:00 INFO loading status icon: /home/isv/repos/keyboards/kanata/kanata-tray/status_icons/default.ico
+2025-06-12T18:16:27.330747601-06:00 INFO loading status icon: /home/isv/repos/keyboards/kanata/kanata-tray/status_icons/crash.ico
+2025-06-12T18:16:27.330944276-06:00 INFO loading status icon: /home/isv/repos/keyboards/kanata/kanata-tray/status_icons/pause.ico
+2025-06-12T18:16:27.331135291-06:00 INFO loading status icon: /home/isv/repos/keyboards/kanata/kanata-tray/status_icons/live-reload.ico
+2025-06-12T18:16:27.437332178-06:00 INFO Running preset 'Main Preset'
+2025-06-12T18:16:27.437796505-06:00 INFO Running command: ./kanata -c=../kanata.kbd --port 5829
+2025-06-12T18:16:27.438469887-06:00 INFO Started kanata (pid=771397)
+2025-06-12T18:16:29.942145542-06:00 INFO Connected to kanata via TCP (127.0.0.1:49682)
+2025-06-12T18:16:29.942903155-06:00 INFO Setting icon: preset:*, layer:base
+2025-06-12T18:16:29.943790413-06:00 WARN Layer 'mouse-fast' is mapped to an icon, but doesn't exist in the loaded kanata config
+2025-06-12T18:16:29.943862061-06:00 WARN Layer 'qwerty' is mapped to an icon, but doesn't exist in the loaded kanata config
+2025-06-12T18:16:29.943886111-06:00 WARN Layer 'numbers' is mapped to an icon, but doesn't exist in the loaded kanata config
+2025-06-12T18:16:29.943907547-06:00 WARN Layer 'mouse' is mapped to an icon, but doesn't exist in the loaded kanata config
+2025-06-12T18:16:29.943928822-06:00 WARN Layer 'mayus' is mapped to an icon, but doesn't exist in the loaded kanata config
+2025-06-12T18:17:34.122628222-06:00 INFO Setting icon: preset:*, layer:mouse
+2025-06-12T18:17:34.123617217-06:00 INFO Setting icon: preset:*, layer:mouse-fast
+2025-06-12T18:17:34.403164558-06:00 INFO Setting icon: preset:*, layer:mouse
+2025-06-12T18:17:34.772519517-06:00 INFO Setting icon: preset:*, layer:base
+2025-06-12T18:17:42.103625854-06:00 INFO Setting icon: preset:*, layer:arrows
+2025-06-12T18:17:42.160741764-06:00 INFO Setting icon: preset:*, layer:base

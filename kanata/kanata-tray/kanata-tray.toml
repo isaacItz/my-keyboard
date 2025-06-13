@@ -14,6 +14,9 @@ tcp_port = 5829 # if not specified, defaults to 5829
 # Documentation: https://github.com/rszyma/kanata-tray/blob/main/doc/hooks.md
 
 [defaults.layer_icons]
+symbols = 'symb.png'
+qwerty = 'qwerty.png'
+f-layer = 'f.png'
 base = 'base.ico'
 numbers = 'numbers.ico'
 arrows = 'arrows.ico'

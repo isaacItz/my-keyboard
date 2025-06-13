@@ -1,0 +1,182 @@
+(defsrc
+								ins
+  esc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft <    z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(deflayer base
+								@go-qwerty
+  caps
+  grv  1    2    3    bspc    5    6    7    @go-mayus    9    bspc    -    =    bspc
+  tab   @numbersp   @mouse   @lm @la b  j @ra @rm @ctalt @one-ralt @go-mayus ]  _
+  esc  a @ls @ragr @flechas g @numbers2 @numbers @ragrl @rs u caps ret
+  lsft  z  x   c     @lc v    z  @rc @rs2 _ @go-flayer      Enter rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+(deflayer qwerty
+								@go-colemak
+  esc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft <    z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(deflayer symbols
+								_
+  esc
+  grv  1    2    3    4    5    S-6    S-7   S-8    S-9   S-0    S-5    +    bspc
+  tab  S-2   S-[    S-]    S-4    S-grv    S-6    S-7    [    ]    S-5    [    ]    \
+  caps `    S-'    /    S-;    '    -    S-9   S-0   S--   S-1    '    ret
+  S-=  =   \    S-\    S-/    S-3  S-=  ;    S-,    S-.    =    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(defalias
+  one-ralt (one-shot-release 500 ralt)
+  go-qwerty (layer-switch qwerty)
+  go-colemak (layer-switch base)
+)
+(defvar
+  tap-time 220
+  hold-time 220
+  hold-numbers 200
+  hold-alt 200
+  control 205
+  tap-alt 220
+  mayus 191
+  symbt 191
+  accentt 150
+)
+(defalias
+  ra (tap-hold $tap-alt $hold-alt l lalt)
+  la (tap-hold $tap-alt $hold-alt p lalt)
+  rm (tap-hold-release-timeout $tap-time $hold-time o lmet lmet)
+  lm (tap-hold $tap-time $hold-time f lmet)
+  rc (tap-hold-except-keys $control $control k lctrl (i))
+  lc (tap-hold $control $control d lctrl)
+  rs (tap-hold-except-keys 0 $mayus i rshift (o n m))
+  rs2 (tap-hold-except-keys $mayus $mayus h (multi lctrl rshift) (o n m))
+  ls (tap-hold-except-keys 0 $mayus r rshift (a))
+  ragr (tap-hold 0 $symbt s (layer-toggle symbols))
+  ragrl (tap-hold 0 $symbt e (layer-toggle symbols))
+  flechas (tap-hold 0 $hold-time t (layer-toggle arrows))
+  mouse (tap-hold $tap-time $hold-time w (layer-toggle mouse))
+  flechasp (tap-dance 200 (p (layer-switch arrows)))
+  go-base (layer-switch base)
+  go-mayus (layer-switch mayus)
+  go-flayer (tap-hold 0 $mayus . (layer-toggle f-layer))
+  numbers (tap-hold 0 $hold-numbers n (layer-toggle numbers))
+  numbers2 (tap-hold $tap-time $hold-time m (layer-toggle numbers))
+  numbersp (tap-dance 200 (q (layer-switch numbers)))
+
+
+  ctalt (tap-hold 200 200 y (multi alt lctrl))
+  atras (multi lalt left)
+  adelante (multi lalt right)
+
+
+  rmeta (tap-hold $control $control . lmet)
+  rcontrol (tap-hold $control $control , lctrl)
+
+)
+
+
+(defalias
+  go-mouse (layer-switch mouse)
+  mouse-up (movemouse-accel-up 8 1000 2 5)
+  mouse-down (movemouse-accel-down 8 1000 2 5)
+  mouse-left (movemouse-accel-left 8 1000 2 5)
+  mouse-right (movemouse-accel-right 8 1000 2 5)
+
+  ms↑ (movemouse-up 6 5)
+  ms↓ (movemouse-down 6 5)
+  ms← (movemouse-left 6 6)
+  ms→ (movemouse-right 6 6)
+
+  mwu (mwheel-up 1 1)
+  mwd (mwheel-down 1 1)
+  mwl (mwheel-left 1 1)
+  mwr (mwheel-right 1 1)
+
+  mwuf (mwheel-up 1 7)
+  mwdf (mwheel-down 1 2)
+  mwlf (mwheel-left 1 2)
+  mwrf (mwheel-right 1 2)
+
+  scrlu (tap-dance-eager 200 ((layer-while-held mouse-scroll) @mwuf))
+)
+(defalias
+  mayus-alt-left (tap-hold 137 $symbt S-s (layer-while-held symbols))
+  mayus-alt-right (tap-hold 137 $symbt S-e (layer-while-held symbols))
+)
+(deflayer mouse
+								_
+caps
+ grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+ caps  mlft   @mouse @go-mouse (layer-while-held mouse-fast) _    _ mlft  @mouse-up  mrtp menu  _ _ _
+ @go-base  lctrl @lc (layer-while-held mouse-scroll) (layer-while-held mouse-fast) _ home @mouse-left @mouse-down @mouse-right _ _ _
+ _  _  _   _     _ _   _    _  mmtp _ _      _ _
+ lctl lmet lalt           spc            ralt rmet rctl
+)
+(deflayer mouse-fast
+								_
+caps
+ grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+ @go-base  mlft   @mouse @go-mouse mlft _    _ mltp  @ms↑  mrtp _  _ _ _ 
+ @go-base  _ @lc (layer-while-held mouse-scroll) mltp _ home @ms← @ms↓ @ms→ end _ _
+ _  _  _   _     _ _   _    _  _ _ _     Enter _
+ lctl lmet lalt           spc            ralt rmet rctl
+)
+(deflayer mouse-scroll
+								_
+caps
+ grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+ _  @go-base   _   @ls _ _    _ mltp  @mwu  mrtp _  _ _ _
+ _  _ @lc @ragr @flechas _ home @mwl @mwd @mwr end _ _
+ _  _  _   _     _ _     _  _  _ _ _    Enter _
+ lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(deflayer mayus
+								_
+caps
+ grv  1    2    3    bspc    5    6    7    @go-base    9    Backspace    -    =    bspc
+ @go-base S-q S-w S-f S-p S-b S-j S-l S-o S-y RA-y @go-base  _ _
+ @go-base    S-a S-r @mayus-alt-left S-t S-g S-m S-n @mayus-alt-right S-i S-u _ _
+ S-z S-z S-x S-c S-d S-v lrld S-k S-h _ _     (multi Enter @go-base) _
+ lctl lmet lalt           (multi Space @go-base)            ralt rmet rctl
+)
+
+(deflayer arrows
+								_
+caps
+ grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+ @go-base  @go-base   menu   @ls _ volu         _  @atras  up  @adelante menu  @go-base _ _
+ @go-base  _ @lc lalt @flechas mute home left down right end _ _
+ _  _  _   _     _ vold _ _ _ pgdn pgup     Enter _
+ lctl lmet lalt           Space            ralt rmet rctl
+)
+(deflayer numbers
+								_
+caps
+ grv  1    2    3    Delete    5    6    7    8    9    Delete    -    =    bspc
+ @go-base 5 6 7 8 9     prev _ (tap-hold 220 220 🔢⁄ lalt) S-, @go-base  _ _ _
+ @go-base 0 1 2 3 4    ▶⏸ _ (tap-hold 220 220 🔢₋ rshift) S-. 🔢⁄ _ _
+  S-;     S-;   🔢₌ 🔢⁄ 🔢∗ S-=           _ next rctl @rcontrol @rmeta       (multi Enter @go-base) _
+ lctl lmet lalt           @go-base            ralt rmet rctl
+)
+(deflayer f-layer
+								_
+caps
+ grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+ _ F1 F2 F3 F4 F5    _ _ _ _ _  _ _ _
+ _ _ brdown brup _ _ _ _ _ _ _ _ _
+ F12 F11 F11 F10 F9 _           _  _ lctrl rshift _      _ _
+ lctl lmet lalt           Space            lalt rmet rctl
+)
